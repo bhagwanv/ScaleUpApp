@@ -10,31 +10,120 @@ class LoginForm extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      child: Column(
-        children: [
-          TextFormField(
-            keyboardType: TextInputType.number,
-            textInputAction: TextInputAction.next,
-            cursorColor: kPrimaryColor,
-            onSaved: (email) {},
-            decoration: const InputDecoration(
-              hintText: "Enter Your Mobile Number",
-              prefixIcon: Padding(
-                padding: EdgeInsets.all(defaultPadding),
-                child: Icon(Icons.person),
+    bool isChecked = false;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Row(children: [
+          SizedBox(
+            width: 60,
+            child: TextField(
+              keyboardType: TextInputType.number,
+              textInputAction: TextInputAction.done,
+              enabled: false,
+              maxLength: 10,
+              maxLines: 1,
+              cursorColor: kPrimaryColor,
+              decoration: InputDecoration(
+                hintText: "+91",
+                fillColor: textFiledBackgroundColour,
+                filled: true,
+                border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    borderSide: BorderSide(color: kPrimaryColor)),
               ),
             ),
           ),
-          const SizedBox(height: defaultPadding),
-          ElevatedButton(
-            onPressed: () {},
-            child: Text(
-              "Login".toUpperCase(),
-            ),
+          SizedBox(
+            width: 20,
           ),
-          const SizedBox(height: defaultPadding),
+          Expanded(
+            child: TextField(
+              keyboardType: TextInputType.number,
+              textInputAction: TextInputAction.done,
+              maxLength: 10,
+              maxLines: 1,
+              cursorColor: kPrimaryColor,
+              decoration: InputDecoration(
+                  hintText: "Enter Your Number",
+                  fillColor: textFiledBackgroundColour,
+                  filled: true,
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: kPrimaryColor, width: 5.0),
+                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                  )),
+            ),
+          )
+        ]),
+        const Column(
+          children: [
+            MyStatefulWidget(),
+          ],
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 50),
+          child: Column(
+            children: [
+              ElevatedButton(
+                style: ButtonStyle(
+                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                    RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0), // Set the border radius here
+                    ),
+                  ),
+                  minimumSize: MaterialStateProperty.all<Size>(
+                    Size(MediaQuery.of(context).size.width,
+                        50), // Width and height of the button
+                  ),
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(kPrimaryColor),
+                  foregroundColor:
+                      MaterialStateProperty.all<Color>(Colors.white),
+                ),
+                onPressed: () {},
+                child: const Text('GET OTP',),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
 
+class MyStatefulWidget extends StatefulWidget {
+  const MyStatefulWidget({Key? key}) : super(key: key);
+
+  @override
+  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
+}
+
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  bool isChecked =
+      false; // This holds the state of the checkbox, we call setState and update this whenever a user taps the checkbox
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 0, top: 30),
+      child: Row(
+        children: [
+          Checkbox(
+            value: isChecked,
+            onChanged: (bool? value) {
+              // This is where we update the state when the checkbox is tapped
+              setState(() {
+                isChecked = value!;
+              });
+            },
+          ),
+          const Text(
+            'Terms & Conditions.',
+            style: TextStyle(
+                fontWeight: FontWeight.normal,
+                fontSize: 14,
+                color: Colors.black),
+            textAlign: TextAlign.start,
+          ),
         ],
       ),
     );
