@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:scaleup_app/view/login_screen/login_screen.dart';
+import 'package:scaleup_app/view/pancard_screen/PancardScreen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const LoginPage(),
+      home: const PancardScreen(),
     );
   }
 }
