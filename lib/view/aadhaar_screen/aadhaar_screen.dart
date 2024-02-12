@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:scaleup_app/utils/my_colors.dart';
+import 'package:scaleup_app/view/aadhaar_screen/aadhaar_otp_screen.dart';
 
 import '../../utils/aadhaar_number_formatter.dart';
 import '../../utils/common_elevted_button.dart';
@@ -32,6 +33,12 @@ class _AadhaarScreenState extends State<AadhaarScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 50),
+                  child: Image.asset(
+                    'assets/images/scale.png',
+                    fit: BoxFit.cover,
+                  )),
                 const Padding(
                   padding: EdgeInsets.only(left: 0, top: 50),
                   child: Text(
@@ -154,7 +161,7 @@ class _AadhaarScreenState extends State<AadhaarScreen> {
                 const SizedBox(height: 16),
                 CommonElevatedButton(
                   onPressed: () {
-                    print("clicked");
+                    Navigator.push(context, MaterialPageRoute(builder: (context) =>  const AadhaarOtpScreen()));
                   },
                   text: 'Proceed to E-Aadhaar',
                 ),

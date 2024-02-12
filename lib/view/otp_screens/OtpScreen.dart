@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -18,7 +17,10 @@ class OtpScreen extends StatelessWidget {
               children: [
                 Padding(
                   padding: const EdgeInsets.only(left: 30, top: 50),
-                  child: SvgPicture.asset("assets/icons/scale_up_logo.svg"),
+                  child: Image.asset(
+                    'assets/images/scale.png',
+                    fit: BoxFit.cover,
+                  )
                 ),
               ],
             ),
