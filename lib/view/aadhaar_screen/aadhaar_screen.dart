@@ -5,6 +5,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:scaleup_app/utils/my_colors.dart';
 import 'package:scaleup_app/view/aadhaar_screen/aadhaar_otp_screen.dart';
+import 'package:scaleup_app/view/aadhaar_screen/aadhaar_photo_selection.dart';
 
 import '../../utils/aadhaar_number_formatter.dart';
 import '../../utils/common_elevted_button.dart';
@@ -34,11 +35,11 @@ class _AadhaarScreenState extends State<AadhaarScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 50),
-                  child: Image.asset(
-                    'assets/images/scale.png',
-                    fit: BoxFit.cover,
-                  )),
+                    padding: const EdgeInsets.only(top: 50),
+                    child: Image.asset(
+                      'assets/images/scale.png',
+                      fit: BoxFit.cover,
+                    )),
                 const Padding(
                   padding: EdgeInsets.only(left: 0, top: 50),
                   child: Text(
@@ -91,31 +92,40 @@ class _AadhaarScreenState extends State<AadhaarScreen> {
                   height: 148,
                   child: Padding(
                     padding: const EdgeInsets.all(1),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(4),
+                    child: InkWell(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(4),
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Center(
+                                child: SvgPicture.asset(
+                                    "assets/icons/gallery.svg",
+                                    colorFilter: const ColorFilter.mode(
+                                        MyColors.blueColor, BlendMode.srcIn))),
+                            const Text(
+                              'Upload Aadhar Front Image',
+                              style: TextStyle(
+                                  color: MyColors.blueColor, fontSize: 12),
+                            ),
+                            const Text(
+                              'Supports : JPEG, PNG',
+                              style: TextStyle(fontSize: 12),
+                            ),
+                          ],
+                        ),
                       ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Center(
-                              child: SvgPicture.asset(
-                                  "assets/icons/gallery.svg",
-                                  colorFilter: const ColorFilter.mode(
-                                      MyColors.blueColor, BlendMode.srcIn))),
-                          const Text(
-                            'Upload Aadhar Front Image',
-                            style: TextStyle(
-                                color: MyColors.blueColor, fontSize: 12),
-                          ),
-                          const Text(
-                            'Supports : JPEG, PNG',
-                            style: TextStyle(fontSize: 12),
-                          ),
-                        ],
-                      ),
+                      onTap: () {
+                        print("tapped on container");
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const AadhaarPhotoSelection()));
+                      },
                     ),
                   ),
                 ),
@@ -161,7 +171,10 @@ class _AadhaarScreenState extends State<AadhaarScreen> {
                 const SizedBox(height: 16),
                 CommonElevatedButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) =>  const AadhaarOtpScreen()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const AadhaarOtpScreen()));
                   },
                   text: 'Proceed to E-Aadhaar',
                 ),
