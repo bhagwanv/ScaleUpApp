@@ -26,12 +26,12 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const SafeArea(
-        top: false,
-        child: Scaffold(
-          backgroundColor: Colors.white,
-            body: SingleChildScrollView(
-              child: Column(
-                        children: <Widget>[
+      top: false,
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: SingleChildScrollView(
+          child: Column(
+            children: <Widget>[
               LoginScreenTopImage(),
               Row(
                 children: [
@@ -43,9 +43,11 @@ class LoginScreen extends StatelessWidget {
                   Spacer(),
                 ],
               ),
-                        ],
-                      ),
-            )));
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
 
