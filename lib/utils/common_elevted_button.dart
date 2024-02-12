@@ -5,11 +5,13 @@ import 'my_colors.dart';
 class CommonElevatedButton extends StatelessWidget {
   final VoidCallback onPressed;
   final String text;
+  final bool upperCase;
 
   const CommonElevatedButton({
     Key? key,
     required this.onPressed,
     required this.text,
+    this.upperCase = false,
   }) : super(key: key);
 
   @override
@@ -28,7 +30,7 @@ class CommonElevatedButton extends StatelessWidget {
         foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
       ),
       onPressed: onPressed,
-      child: Text(text),
+      child: upperCase ? Text(text.toUpperCase()) : Text(text),
     );
   }
 }
