@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:scaleup_app/utils/common_elevted_button.dart';
+import 'package:scaleup_app/view/aadhaar_screen/aadhaar_otp_screen.dart';
+import 'package:scaleup_app/view/aadhaar_screen/aadhaar_screen.dart';
 import 'package:scaleup_app/view/otp_screens/OtpScreen.dart';
 
 class PermissionsScreen extends StatelessWidget {
@@ -236,7 +238,16 @@ class _PermissionsWidget extends State<PermissionsWidget> {
               style: TextStyle(fontSize: 12, color: Colors.black),
             ),
             SizedBox(height: 20),
-            CommonElevatedButton(onPressed: (){ bottomSheetMenu(context);}, text: "Accept and Continue",upperCase: true, )
+            CommonElevatedButton(onPressed: (){
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const AadhaarScreen();
+                  },
+                ),
+              );
+              ;}, text: "Accept and Continue",upperCase: true, )
           ],
         ),
       ),
