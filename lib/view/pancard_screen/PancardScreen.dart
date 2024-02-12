@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
+import '../../constants.dart';
+
 class PancardScreen extends StatelessWidget {
   const PancardScreen({super.key});
 
@@ -11,10 +13,10 @@ class PancardScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text('Pancard Screen'),
+        body: Padding(
+          padding: const EdgeInsets.only(top: 40),
+          child: PancardWidget(),
         ),
-        body: PancardWidget(),
       ),
     );
   }
@@ -33,16 +35,15 @@ class _PancardWidget extends State<PancardWidget> {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Padding(
-        padding:
-            const EdgeInsets.only(top: 20, left: 10, right: 10, bottom: 20),
+        padding: const EdgeInsets.all(30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Container(height: 100,width: 100,
-              alignment:Alignment.topLeft,
-              child:  Image.asset('assets/images/scale.png')
-            ),
-
+            Container(
+                height: 100,
+                width: 100,
+                alignment: Alignment.topLeft,
+                child: Image.asset('assets/images/scale.png')),
             Text(
               'Enter Your PAN',
               textAlign: TextAlign.start,
@@ -55,17 +56,25 @@ class _PancardWidget extends State<PancardWidget> {
               style: TextStyle(fontSize: 15, color: Colors.black),
             ),
             SizedBox(height: 20),
+            Text(
+              'PAN Number',
+              textAlign: TextAlign.start,
+              style: TextStyle(fontSize: 15, color: Color(0xff858585)),
+            ),
+            SizedBox(height: 5),
             TextField(
-              controller: _controller,
+              keyboardType: TextInputType.text,
+              cursorColor: kPrimaryColor,
               decoration: InputDecoration(
-                fillColor: Color(0xffEFFAFF),
-                filled: true,
-                labelText: 'PAN Number',
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(width: 1, color: Color(0xff0196CE)),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(width: 1, color: Colors.greenAccent),
+                    borderSide: BorderSide(color: kPrimaryColor),
+                    borderRadius: BorderRadius.all(Radius.circular(10.0))),
+                hintText: "PAN number",
+                fillColor: textFiledBackgroundColour,
+                filled: true,
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(color: kPrimaryColor, width: 1.0),
+                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
                 ),
                 suffixIcon: Container(
                   padding: EdgeInsets.all(16),
@@ -77,54 +86,76 @@ class _PancardWidget extends State<PancardWidget> {
               ),
             ),
             SizedBox(height: 20),
+            Text(
+              'Name ( As per PAN )',
+              textAlign: TextAlign.start,
+              style: TextStyle(fontSize: 15, color: Color(0xff858585)),
+            ),
+            SizedBox(height: 5),
             TextField(
-              controller: _controller,
+              keyboardType: TextInputType.text,
+              cursorColor: kPrimaryColor,
               decoration: InputDecoration(
-                fillColor: Color(0xffEFFAFF),
-                filled: true,
-                labelText: 'Name ( As per PAN )',
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(width: 1, color: Color(0xff0196CE)),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(width: 1, color: Colors.greenAccent),
+                    borderSide: BorderSide(color: kPrimaryColor),
+                    borderRadius: BorderRadius.all(Radius.circular(10.0))),
+                hintText: "Enter Name",
+                fillColor: textFiledBackgroundColour,
+                filled: true,
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(color: kPrimaryColor, width: 1.0),
+                  borderRadius: BorderRadius.all(Radius.circular(10.0)),
                 ),
               ),
             ),
             SizedBox(height: 20),
+            Text(
+              'DOB ( As per PAN )',
+              textAlign: TextAlign.start,
+              style: TextStyle(fontSize: 15, color: Color(0xff858585)),
+            ),
+            SizedBox(height: 5),
             TextField(
-              controller: _controller,
+              keyboardType: TextInputType.text,
+              cursorColor: kPrimaryColor,
               decoration: InputDecoration(
-                fillColor: Color(0xffEFFAFF),
-                filled: true,
-                labelText: 'DOB ( As per PAN )',
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(width: 1, color: Color(0xff0196CE)),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(width: 1, color: Colors.greenAccent),
-                ),
+                    borderSide: BorderSide(color: kPrimaryColor),
+                    borderRadius: BorderRadius.all(Radius.circular(10.0))),
+                hintText: "DD | MM | YYYY",
+                fillColor: textFiledBackgroundColour,
+                filled: true,
+                border: OutlineInputBorder(
+                    borderSide: BorderSide(color: kPrimaryColor, width: 1.0),
+                    borderRadius: BorderRadius.all(Radius.circular(10.0))),
               ),
             ),
             SizedBox(height: 20),
+            Text(
+              'Father’s Name ( As per PAN )',
+              textAlign: TextAlign.start,
+              style: TextStyle(fontSize: 15, color: Color(0xff858585)),
+            ),
+            SizedBox(height: 5),
             TextField(
-              controller: _controller,
+              keyboardType: TextInputType.text,
+              cursorColor: kPrimaryColor,
               decoration: InputDecoration(
-                fillColor: Color(0xffEFFAFF),
-                filled: true,
-                labelText: 'Father’s Name ( As per PAN )',
                 enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(width: 1, color: Color(0xff0196CE)),
-                ),
-                focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(width: 1, color: Colors.greenAccent),
-                ),
+                    borderSide: BorderSide(color: kPrimaryColor),
+                    borderRadius: BorderRadius.all(Radius.circular(10.0))),
+                hintText: "Enter Father Name",
+                fillColor: textFiledBackgroundColour,
+                filled: true,
+                border: OutlineInputBorder(
+                    borderSide: BorderSide(color: kPrimaryColor, width: 1.0),
+                    borderRadius: BorderRadius.all(Radius.circular(10.0))),
               ),
             ),
             SizedBox(height: 20),
             Container(
               decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(4),
+                  borderRadius: BorderRadius.circular(10),
                   border: Border.all(color: Color(0xff0196CE))),
               width: double.infinity,
               height: 148,
@@ -132,8 +163,7 @@ class _PancardWidget extends State<PancardWidget> {
                 padding: const EdgeInsets.all(2),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(4),
+                    color: Color(0xffEFFAFF),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -145,8 +175,7 @@ class _PancardWidget extends State<PancardWidget> {
                         style: TextStyle(color: Color(0xff0196CE)),
                       ),
                       Text('Supports : JPEG, PNG',
-                          style: TextStyle(color: Color(0xffCACACA))
-                      ),
+                          style: TextStyle(color: Color(0xffCACACA))),
                     ],
                   ),
                 ),
@@ -154,17 +183,7 @@ class _PancardWidget extends State<PancardWidget> {
             ),
             SizedBox(height: 20),
             Row(
-              children: [
-                Checkbox(
-                  value: isChecked,
-                  onChanged: (bool? value) {
-                    setState(() {
-                      isChecked = value!;
-                    });
-                  },
-                ),
-                Text('I agree to the terms and conditions'),
-              ],
+              children: [CustomCheckbox()],
             ),
             SizedBox(height: 20),
             Text(
@@ -172,7 +191,7 @@ class _PancardWidget extends State<PancardWidget> {
             SizedBox(height: 30),
             Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(4),
+                borderRadius: BorderRadius.circular(10),
                 color: Color(0xff0196CE),
               ),
               width: double.infinity,
@@ -195,3 +214,52 @@ class _PancardWidget extends State<PancardWidget> {
   }
 }
 
+class CustomCheckbox extends StatefulWidget {
+  @override
+  _CustomCheckboxState createState() => _CustomCheckboxState();
+}
+
+class _CustomCheckboxState extends State<CustomCheckbox> {
+  bool isChecked = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        setState(() {
+          isChecked = !isChecked;
+        });
+      },
+      child: Container(
+        padding: EdgeInsets.all(8.0),
+        child: Row(
+          children: [
+            Container(
+              width: 24.0,
+              height: 24.0,
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.grey,
+                  width: 0.0,
+                ),
+                borderRadius: BorderRadius.circular(8.0),
+              ),
+              child: isChecked
+                  ? Container(
+                      color: Color(0xff0196CE),
+                      child: Icon(
+                        Icons.check,
+                        size: 18.0,
+                        color: Colors.white,
+                      ),
+                    )
+                  : Container(),
+            ),
+            SizedBox(width: 8.0),
+            Text('Custom Checkbox Text'),
+          ],
+        ),
+      ),
+    );
+  }
+}
