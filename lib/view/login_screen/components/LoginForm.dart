@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:scaleup_app/view/otp_screens/OtpScreen.dart';
 
 import '../../../constants.dart';
 
@@ -20,10 +21,10 @@ class LoginForm extends StatelessWidget {
             child: TextField(
               keyboardType: TextInputType.number,
               textInputAction: TextInputAction.done,
-              enabled: false,
               maxLength: 10,
               maxLines: 1,
               cursorColor: kPrimaryColor,
+              style: TextStyle(color: Colors.red),
               decoration: InputDecoration(
                 hintText: "+91",
                 fillColor: textFiledBackgroundColour,
@@ -45,12 +46,15 @@ class LoginForm extends StatelessWidget {
               maxLines: 1,
               cursorColor: kPrimaryColor,
               decoration: InputDecoration(
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(color: kPrimaryColor),
+                  ),
                   hintText: "Enter Your Number",
                   fillColor: textFiledBackgroundColour,
                   filled: true,
                   border: OutlineInputBorder(
-                    borderSide: BorderSide(color: kPrimaryColor, width: 5.0),
-                    borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                    borderSide: BorderSide(color: kPrimaryColor, width: 1.0),
+                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
                   )),
             ),
           )
@@ -68,7 +72,8 @@ class LoginForm extends StatelessWidget {
                 style: ButtonStyle(
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0), // Set the border radius here
+                      borderRadius: BorderRadius.circular(
+                          10.0), // Set the border radius here
                     ),
                   ),
                   minimumSize: MaterialStateProperty.all<Size>(
@@ -80,8 +85,19 @@ class LoginForm extends StatelessWidget {
                   foregroundColor:
                       MaterialStateProperty.all<Color>(Colors.white),
                 ),
-                onPressed: () {},
-                child: const Text('GET OTP',),
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return const OtpScreen();
+                      },
+                    ),
+                  );
+                },
+                child: const Text(
+                  'GET OTP',
+                ),
               ),
             ],
           ),
