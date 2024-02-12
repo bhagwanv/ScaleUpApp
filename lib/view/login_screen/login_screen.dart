@@ -28,6 +28,7 @@ class LoginScreen extends StatelessWidget {
     return const SafeArea(
         top: false,
         child: Scaffold(
+          backgroundColor: Colors.white,
             body: SingleChildScrollView(
               child: Column(
                         children: <Widget>[
