@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:scaleup_app/utils/common_elevted_button.dart';
+import 'package:scaleup_app/view/otp_screens/OtpScreen.dart';
 
 class PermissionsScreen extends StatelessWidget {
   const PermissionsScreen({super.key});
@@ -234,24 +236,7 @@ class _PermissionsWidget extends State<PermissionsWidget> {
               style: TextStyle(fontSize: 12, color: Colors.black),
             ),
             SizedBox(height: 20),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Color(0xff0196CE),
-              ),
-              width: double.infinity,
-              height: 50,
-              child: TextButton(
-                onPressed: () {},
-                child: Container(
-                  child: const Text(
-                    'Accept and Continue',
-                    style: TextStyle(color: Colors.white, fontSize: 13.0),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ),
-            ),
+            CommonElevatedButton(onPressed: (){ bottomSheetMenu(context);}, text: "Accept and Continue",upperCase: true, )
           ],
         ),
       ),

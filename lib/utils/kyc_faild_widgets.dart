@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:scaleup_app/constants.dart';
 import 'package:scaleup_app/utils/common_elevted_button.dart';
+import 'package:scaleup_app/view/pancard_screen/PancardScreen.dart';
 
 class KycFailedWidgets extends StatelessWidget {
 
@@ -54,6 +55,15 @@ class KycFailedWidgets extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 20,bottom: 40,right: 20,left: 20),
               child: CommonElevatedButton(onPressed: (){
+
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const PancardScreen();
+                    },
+                  ),
+                );
 
               }, text: "RETRY",upperCase: true, ),
             )

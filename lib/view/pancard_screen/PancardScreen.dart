@@ -3,6 +3,9 @@ import 'dart:ffi';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:scaleup_app/utils/common_elevted_button.dart';
+import 'package:scaleup_app/view/otp_screens/OtpScreen.dart';
+import 'package:scaleup_app/view/pancard_screen/PermissionsScreen.dart';
 
 import '../../constants.dart';
 
@@ -189,24 +192,14 @@ class _PancardWidget extends State<PancardWidget> {
             Text(
                 "I hereby accept Scaleup T&C & Privacy Notice. Further, I hereby agree to share my details, including PAN, Date of birth, Name, Pin code, Mobile number, Email id and device information with you and for further sharing with your partners including lending partners"),
             SizedBox(height: 30),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10),
-                color: Color(0xff0196CE),
+            CommonElevatedButton(onPressed: (){  Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return const PermissionsScreen();
+                },
               ),
-              width: double.infinity,
-              height: 50,
-              child: TextButton(
-                onPressed: () {},
-                child: Container(
-                  child: const Text(
-                    'NEXT',
-                    style: TextStyle(color: Colors.white, fontSize: 13.0),
-                    textAlign: TextAlign.center,
-                  ),
-                ),
-              ),
-            ),
+            );;}, text: "next",upperCase: true, )
           ],
         ),
       ),
