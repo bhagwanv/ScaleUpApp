@@ -23,13 +23,12 @@ class _AadhaarScreenState extends State<AadhaarScreen> {
 
   @override
   Widget build(BuildContext context) {
-    bool _isChecked = false;
     return SafeArea(
       top: true,
       bottom: true,
       child: Scaffold(
         body: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 0.0),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,14 +44,20 @@ class _AadhaarScreenState extends State<AadhaarScreen> {
                   child: Text(
                     "Verify Aadhaar",
                     style:
-                        TextStyle(fontSize: 40, fontFamily: 'Urbanist-light.ttf'),
+                        TextStyle(fontFamily: 'Urbanist',
+                          fontSize: 40.0,
+                          color: blackSmall,
+                          fontWeight: FontWeight.w400,),
                   ),
                 ),
                 const Padding(
                   padding: EdgeInsets.only(top: 20, bottom: 44),
                   child: Text(
                     "Please validate your Aadhaar number",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                    style: TextStyle(fontFamily: 'Urbanist',
+                      fontSize: 15.0,
+                      color: blackSmall,
+                      fontWeight: FontWeight.w500,),
                     textAlign: TextAlign.start,
                   ),
                 ),
@@ -64,12 +69,16 @@ class _AadhaarScreenState extends State<AadhaarScreen> {
                   controller: _aadhaarController,
                   textInputAction: TextInputAction.done,
                   keyboardType: TextInputType.number,
+                  style: TextStyle(fontFamily: 'Urbanist',
+                    fontSize: 16.0,
+                    color: blackSmall,
+                    fontWeight: FontWeight.w500,),
                   decoration: const InputDecoration(
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: kPrimaryColor),
                     ),
+                    fillColor: textFiledBackgroundColour,
                     filled: true,
-                    fillColor: lightBlueColor,
                     border: OutlineInputBorder(
                       borderSide: BorderSide(color: kPrimaryColor),
                     ),
@@ -87,7 +96,7 @@ class _AadhaarScreenState extends State<AadhaarScreen> {
                     gradient: const LinearGradient(
                       colors: [kPrimaryColor, kPrimaryColor],
                     ),
-                    borderRadius: BorderRadius.circular(4),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                   height: 148,
                   child: Padding(
@@ -95,8 +104,8 @@ class _AadhaarScreenState extends State<AadhaarScreen> {
                     child: InkWell(
                       child: Container(
                         decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(4),
+                          color: textFiledBackgroundColour,
+                          borderRadius: BorderRadius.circular(8.0),
                         ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -110,11 +119,15 @@ class _AadhaarScreenState extends State<AadhaarScreen> {
                             const Text(
                               'Upload Aadhar Front Image',
                               style: TextStyle(
-                                  color: kPrimaryColor, fontSize: 12),
+                                  color: kPrimaryColor, fontFamily: 'Urbanist',
+                                fontSize: 12.0,
+                                fontWeight: FontWeight.w400,),
                             ),
                             const Text(
                               'Supports : JPEG, PNG',
-                              style: TextStyle(fontSize: 12),
+                              style: TextStyle(color: blackSmall, fontFamily: 'Urbanist',
+                                fontSize: 12.0,
+                                fontWeight: FontWeight.w400,),
                             ),
                           ],
                         ),
@@ -135,15 +148,15 @@ class _AadhaarScreenState extends State<AadhaarScreen> {
                     gradient: const LinearGradient(
                       colors: [kPrimaryColor, kPrimaryColor],
                     ),
-                    borderRadius: BorderRadius.circular(4),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                   height: 148,
                   child: Padding(
                     padding: const EdgeInsets.all(1),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(4),
+                        color: textFiledBackgroundColour,
+                        borderRadius: BorderRadius.circular(8.0),
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -156,11 +169,14 @@ class _AadhaarScreenState extends State<AadhaarScreen> {
                                       kPrimaryColor, BlendMode.srcIn))),
                           const Text(
                             'Upload Aadhar Back Image',
-                            style: TextStyle(
-                                color: kPrimaryColor, fontSize: 12),
+                            style: TextStyle( color: kPrimaryColor, fontFamily: 'Urbanist',
+                              fontSize: 12.0,
+                              fontWeight: FontWeight.w400,),
                           ),
                           const Text('Supports : JPEG, PNG',
-                              style: TextStyle(fontSize: 12)),
+                              style: TextStyle( color: blackSmall, fontFamily: 'Urbanist',
+                                fontSize: 12.0,
+                                fontWeight: FontWeight.w400,)),
                         ],
                       ),
                     ),
@@ -177,15 +193,17 @@ class _AadhaarScreenState extends State<AadhaarScreen> {
                             builder: (context) => const AadhaarOtpScreen()));
                   },
                   text: 'Proceed to E-Aadhaar',
+                  upperCase: true,
                 ),
                 const SizedBox(height: 16),
                 Center(
                   child: Text(
                   "Proceed with manual Aadhaar ",
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 14, color: kPrimaryColor),
+                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14, color: kPrimaryColor),
                   textAlign: TextAlign.center,
                 ),
                 ),
+                const SizedBox(height: 16)
               ],
             ),
           ),
