@@ -3,6 +3,7 @@ import 'dart:ffi';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:scaleup_app/utils/ImagePicker.dart';
 import 'package:scaleup_app/utils/common_elevted_button.dart';
 import 'package:scaleup_app/view/otp_screens/OtpScreen.dart';
 import 'package:scaleup_app/view/pancard_screen/PermissionsScreen.dart';
@@ -62,13 +63,14 @@ class _PancardWidget extends State<PancardWidget> {
             Text(
               'PAN Number',
               textAlign: TextAlign.start,
-              style: TextStyle(fontSize: 15, color: Color(0xff858585)),
+              style: TextStyle(fontSize: 14, color: Color(0xff858585)),
             ),
             SizedBox(height: 5),
             TextField(
               keyboardType: TextInputType.text,
               cursorColor: kPrimaryColor,
               decoration: InputDecoration(
+                contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
                 enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: kPrimaryColor),
                     borderRadius: BorderRadius.all(Radius.circular(10.0))),
@@ -80,7 +82,7 @@ class _PancardWidget extends State<PancardWidget> {
                   borderRadius: BorderRadius.all(Radius.circular(10.0)),
                 ),
                 suffixIcon: Container(
-                  padding: EdgeInsets.all(16),
+                  padding: EdgeInsets.all(10),
                   child: SvgPicture.asset(
                     'assets/images/verify_pan.svg',
                     semanticsLabel: 'My SVG Image',
@@ -92,13 +94,14 @@ class _PancardWidget extends State<PancardWidget> {
             Text(
               'Name ( As per PAN )',
               textAlign: TextAlign.start,
-              style: TextStyle(fontSize: 15, color: Color(0xff858585)),
+              style: TextStyle(fontSize: 14, color: Color(0xff858585)),
             ),
             SizedBox(height: 5),
             TextField(
               keyboardType: TextInputType.text,
               cursorColor: kPrimaryColor,
               decoration: InputDecoration(
+                contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
                 enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: kPrimaryColor),
                     borderRadius: BorderRadius.all(Radius.circular(10.0))),
@@ -115,13 +118,14 @@ class _PancardWidget extends State<PancardWidget> {
             Text(
               'DOB ( As per PAN )',
               textAlign: TextAlign.start,
-              style: TextStyle(fontSize: 15, color: Color(0xff858585)),
+              style: TextStyle(fontSize: 14, color: Color(0xff858585)),
             ),
             SizedBox(height: 5),
             TextField(
               keyboardType: TextInputType.text,
               cursorColor: kPrimaryColor,
               decoration: InputDecoration(
+                contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
                 enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: kPrimaryColor),
                     borderRadius: BorderRadius.all(Radius.circular(10.0))),
@@ -137,13 +141,14 @@ class _PancardWidget extends State<PancardWidget> {
             Text(
               'Father’s Name ( As per PAN )',
               textAlign: TextAlign.start,
-              style: TextStyle(fontSize: 15, color: Color(0xff858585)),
+              style: TextStyle(fontSize: 14, color: Color(0xff858585)),
             ),
             SizedBox(height: 5),
             TextField(
               keyboardType: TextInputType.text,
               cursorColor: kPrimaryColor,
               decoration: InputDecoration(
+                contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
                 enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: kPrimaryColor),
                     borderRadius: BorderRadius.all(Radius.circular(10.0))),
@@ -162,31 +167,41 @@ class _PancardWidget extends State<PancardWidget> {
                   border: Border.all(color: Color(0xff0196CE))),
               width: double.infinity,
               height: 148,
-              child: Padding(
-                padding: const EdgeInsets.all(2),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Color(0xffEFFAFF),
+              child: GestureDetector(
+                onTap: () {
+                  bottomSheetMenu(context);
+                },
+                child: Padding(
+                  padding: const EdgeInsets.all(2),
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Color(0xffEFFAFF),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset('assets/images/gallery.svg'),
+                        Text(
+                          'Upload Aadhar Front Image',
+                          style: TextStyle(color: Color(0xff0196CE),fontSize: 12),
+                        ),
+                        Text('Supports : JPEG, PNG',
+                            style: TextStyle(fontSize: 12,color: Color(0xffCACACA))),
+                      ],
+                    ),
                   ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      SvgPicture.asset('assets/images/gallery.svg'),
-                      Text(
-                        'Upload Aadhar Front Image',
-                        style: TextStyle(color: Color(0xff0196CE)),
-                      ),
-                      Text('Supports : JPEG, PNG',
-                          style: TextStyle(color: Color(0xffCACACA))),
-                    ],
-                  ),
-                ),
-              ),
+                ) ,
+
+              )
+
             ),
             SizedBox(height: 20),
             Row(
-              children: [CustomCheckbox()],
+              children: [CustomCheckbox(onChanged: (bool isChecked) {
+                // Handle the state change here
+                print('Checkbox state changed: $isChecked');
+              },)],
             ),
             SizedBox(height: 20),
             Text(
@@ -205,9 +220,22 @@ class _PancardWidget extends State<PancardWidget> {
       ),
     );
   }
+
+
+  void bottomSheetMenu(BuildContext context) {
+    showModalBottomSheet(
+        context: context,
+        builder: (builder){
+          return const ImagePickerWidgets();
+        }
+    );
+  }
 }
 
 class CustomCheckbox extends StatefulWidget {
+  final ValueChanged<bool>? onChanged;
+
+  CustomCheckbox({Key? key, this.onChanged}) : super(key: key);
   @override
   _CustomCheckboxState createState() => _CustomCheckboxState();
 }
@@ -221,6 +249,7 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
       onTap: () {
         setState(() {
           isChecked = !isChecked;
+          widget.onChanged?.call(isChecked);
         });
       },
       child: Container(
