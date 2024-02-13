@@ -1,13 +1,9 @@
-import 'dart:ffi';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:scaleup_app/utils/common_elevted_button.dart';
-import 'package:scaleup_app/view/otp_screens/OtpScreen.dart';
 import 'package:scaleup_app/view/pancard_screen/PermissionsScreen.dart';
 
-import '../../constants.dart';
+import '../../utils/constants.dart';
 
 class PancardScreen extends StatelessWidget {
   const PancardScreen({super.key});

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:scaleup_app/view/otp_screens/OtpScreen.dart';
 
-import '../../../constants.dart';
+import '../../../utils/constants.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({

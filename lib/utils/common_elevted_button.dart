@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'my_colors.dart';
+import 'constants.dart';
 
 class CommonElevatedButton extends StatelessWidget {
   final VoidCallback onPressed;
@@ -24,9 +24,9 @@ class CommonElevatedButton extends StatelessWidget {
           ),
         ),
         minimumSize: MaterialStateProperty.all<Size>(
-          Size(MediaQuery.of(context).size.width, 50),
+          Size(MediaQuery.of(context).size.width, 58),
         ),
-        backgroundColor: MaterialStateProperty.all<Color>(MyColors.blueColor),
+        backgroundColor: MaterialStateProperty.all<Color>(kPrimaryColor),
         foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
       ),
       onPressed: onPressed,

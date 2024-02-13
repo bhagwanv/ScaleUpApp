@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../../utils/my_colors.dart';
+import 'package:scaleup_app/utils/constants.dart';
 
 class CheckboxTerm extends StatefulWidget {
   const CheckboxTerm({super.key});
@@ -31,7 +30,7 @@ class _CheckboxTermState extends State<CheckboxTerm> {
         checkColor: Colors.white,
         fillColor: MaterialStateProperty.resolveWith(getColor),
         value: isChecked,
-        side: const BorderSide(color: MyColors.blueColor),
+        side: const BorderSide(color: kPrimaryColor),
         onChanged: (bool? value) {
           setState(() {
             isChecked = value!;

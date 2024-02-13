@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:scaleup_app/responsive/Responsive.dart';
 
-import '../../constants.dart';
+import '../../utils/constants.dart';
 import 'Background.dart';
 import 'components/LoginForm.dart';
 
