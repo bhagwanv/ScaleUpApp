@@ -11,8 +11,8 @@ class PancardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return SafeArea(
+      child: Scaffold(
         body: Padding(
           padding: const EdgeInsets.only(top: 40),
           child: PancardWidget(),
@@ -194,7 +194,8 @@ class _PancardWidget extends State<PancardWidget> {
             ),
             SizedBox(height: 20),
             Row(
-              children: [CustomCheckbox(onChanged: (bool isChecked) {
+              children: [
+                CustomCheckbox(onChanged: (bool isChecked) {
                 // Handle the state change here
                 print('Checkbox state changed: $isChecked');
               },)],

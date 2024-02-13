@@ -54,13 +54,14 @@ class LoginForm extends StatelessWidget {
                 decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: kPrimaryColor),
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
                     ),
                     hintText: "Enter Your Number",
                     fillColor: textFiledBackgroundColour,
                     filled: true,
                     border: OutlineInputBorder(
                       borderSide: BorderSide(color: kPrimaryColor, width: 1.0),
-                      borderRadius: BorderRadius.all(Radius.circular(100.0)),
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
                     )),
               ),
             ),
