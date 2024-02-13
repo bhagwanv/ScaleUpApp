@@ -102,22 +102,12 @@ class _AadhaarOtpScreenState extends State<AadhaarOtpScreen> {
                       )
                   ),
                   const SizedBox(height: 10,),
-                  CommonElevatedButton(onPressed: (){ bottomSheetMenu(context);}, text: "Verify Code",upperCase: true, )
-
+                  CommonElevatedButton(onPressed: (){ print("clickd");}, text: "Verify Code",upperCase: true, )
                 ],
               ),
             ),
           ),
         ));
   }
-}
-
-void bottomSheetMenu(BuildContext context) {
-  showModalBottomSheet(
-      context: context,
-      builder: (builder){
-        return const KycFailedWidgets();
-      }
-  );
 }
 

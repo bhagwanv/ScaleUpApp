@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'constants.dart';
+
 class CommonTextField extends StatefulWidget {
   final TextEditingController controller;
   final String? hintText;
@@ -16,6 +18,7 @@ class CommonTextField extends StatefulWidget {
   final TextInputAction? textInputAction;
   final Color? textColor;
   final Color? accentColor;
+  final Color fillColor;
 
   const CommonTextField({
     Key? key,
@@ -34,6 +37,7 @@ class CommonTextField extends StatefulWidget {
     this.textColor,
     this.maxLines = 1,
     this.accentColor,
+    this.fillColor = textFiledBackgroundColour,
   }) : super(key: key);
 
   @override
@@ -45,7 +49,7 @@ class _CommonTextFieldState extends State<CommonTextField> {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
+
     return TextField(
       controller: widget.controller,
       keyboardType: widget.keyboardType,
@@ -55,12 +59,14 @@ class _CommonTextFieldState extends State<CommonTextField> {
       maxLines: !_isObscure ? widget.maxLines : 1,
       style: TextStyle(color: widget.textColor ?? Colors.black), // Set text color
       decoration: InputDecoration(
+        fillColor: widget.fillColor,
+        filled: true,
         hintText: widget.hintText,
         labelText: widget.labelText ?? 'Default Simple TextField', // Use confirmation text as label if provided, else use default label text
         labelStyle: TextStyle(color: widget.accentColor ?? Colors.black), // Set accent color
         helperText: widget.helperText,
         prefixIcon: widget.prefixIconData != null
-            ? Icon(widget.prefixIconData, color: widget.accentColor ?? theme.colorScheme.primary) // Set accent color for prefix icon
+            ? Icon(widget.prefixIconData, color: widget.accentColor ?? kPrimaryColor) // Set accent color for prefix icon
             : null,
         suffixIcon: widget.obscureText
             ? IconButton(
@@ -70,21 +76,21 @@ class _CommonTextFieldState extends State<CommonTextField> {
             });
           },
           icon: Icon(_isObscure ? widget.passwordShowIcon ?? Icons.visibility : widget.passwordHideIcon ?? Icons.visibility_off),
-          color: widget.accentColor ?? theme.colorScheme.primary,
+          color: widget.accentColor ?? kPrimaryColor,
         )
             : null,
         contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: BorderSide(color: theme.primaryColor, width: 1),
+          borderSide: const BorderSide(color: kPrimaryColor, width: 1),
         ),
         focusedBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: BorderSide(color: Colors.red, width: 2),
+          borderSide: const BorderSide(color: kPrimaryColor, width: 1),
         ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: BorderSide(color: theme.disabledColor, width: 1),
+          borderSide: BorderSide(color: kPrimaryColor, width: 1),
         ),
         errorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
@@ -92,7 +98,7 @@ class _CommonTextFieldState extends State<CommonTextField> {
         ),
         focusedErrorBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
-          borderSide: const BorderSide(color: Colors.red, width: 2),
+          borderSide: const BorderSide(color: Colors.red, width: 1),
         ),
         // You can add more customization to the decoration as needed
         // For example, adding icons, labels, etc.
