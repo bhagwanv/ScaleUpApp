@@ -24,7 +24,7 @@ class CommonElevatedButton extends StatelessWidget {
           ),
         ),
         minimumSize: MaterialStateProperty.all<Size>(
-          Size(MediaQuery.of(context).size.width, 50),
+          Size(MediaQuery.of(context).size.width, 58),
         ),
         backgroundColor: MaterialStateProperty.all<Color>(MyColors.blueColor),
         foregroundColor: MaterialStateProperty.all<Color>(Colors.white),

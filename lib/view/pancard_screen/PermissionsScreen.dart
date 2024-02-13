@@ -36,18 +36,18 @@ class _PermissionsWidget extends State<PermissionsWidget> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
+            const Text(
               'to setup your account, we need a few permissions',
               textAlign: TextAlign.start,
               style: TextStyle(fontSize: 20, color: Color(0xff0196CE)),
             ),
-            SizedBox(height: 20),
-            Text(
+            const SizedBox(height: 20),
+            const Text(
               'We need some permissions to make your experience better',
               textAlign: TextAlign.start,
               style: TextStyle(fontSize: 18, color: Colors.black),
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
 
             ListTile(
               title: Stack(
@@ -60,8 +60,8 @@ class _PermissionsWidget extends State<PermissionsWidget> {
                       semanticsLabel: 'mobile_icon',
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 50),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 50),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [ // Adjust the spacing between icon and text
@@ -79,7 +79,7 @@ class _PermissionsWidget extends State<PermissionsWidget> {
                 ],
               ),
 
-              contentPadding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+              contentPadding: const EdgeInsets.symmetric(horizontal: 0, vertical: 0),
               dense: true,
               enabled: false,
               selected: true,
@@ -97,8 +97,8 @@ class _PermissionsWidget extends State<PermissionsWidget> {
                       semanticsLabel: 'Call_icon',
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 50),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 50),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [ // Adjust the spacing between icon and text
@@ -133,8 +133,8 @@ class _PermissionsWidget extends State<PermissionsWidget> {
                       semanticsLabel: 'camera_icon',
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 50),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 50),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [ // Adjust the spacing between icon and text
@@ -169,8 +169,8 @@ class _PermissionsWidget extends State<PermissionsWidget> {
                       semanticsLabel: 'file_icon',
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(left: 50),
+                  const Padding(
+                    padding: EdgeInsets.only(left: 50),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [ // Adjust the spacing between icon and text
@@ -229,8 +229,6 @@ class _PermissionsWidget extends State<PermissionsWidget> {
               enabled: false,
               selected: true,
             ),
-
-
 
             Text(
               'By continuing. I agree to Scaleup T&Cs and Privacy Policy',
