@@ -29,7 +29,7 @@ class _AadhaarScreenState extends State<AadhaarScreen> {
       bottom: true,
       child: Scaffold(
         body: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.symmetric(horizontal: 30,vertical: 0),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
