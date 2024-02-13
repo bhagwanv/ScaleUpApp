@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:scaleup_app/constants.dart';
+import 'package:scaleup_app/utils/constants.dart';
 import 'package:scaleup_app/utils/common_elevted_button.dart';
 import 'package:scaleup_app/view/pancard_screen/PancardScreen.dart';
 

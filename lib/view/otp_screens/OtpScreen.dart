@@ -1,12 +1,10 @@
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:pinput/pinput.dart';
 import 'package:scaleup_app/utils/common_elevted_button.dart';
 import 'package:scaleup_app/utils/kyc_faild_widgets.dart';
-import '../../constants.dart';
+import '../../utils/constants.dart';
 
 class OtpScreen extends StatelessWidget {
   const OtpScreen({super.key});
@@ -56,7 +54,7 @@ class OtpScreen extends StatelessWidget {
                   const SizedBox(height: 55,),
                   Center(
                     child: Pinput(
-                      length: 4,
+                      length: 6,
                       showCursor: true,
                       defaultPinTheme: defaultPinTheme,
                       focusedPinTheme: defaultPinTheme.copyWith(

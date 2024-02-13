@@ -3,12 +3,12 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:scaleup_app/utils/my_colors.dart';
 import 'package:scaleup_app/view/aadhaar_screen/aadhaar_otp_screen.dart';
 import 'package:scaleup_app/view/aadhaar_screen/aadhaar_photo_selection.dart';
 
 import '../../utils/aadhaar_number_formatter.dart';
 import '../../utils/common_elevted_button.dart';
+import '../../utils/constants.dart';
 import 'components/CheckboxTerm.dart';
 
 class AadhaarScreen extends StatefulWidget {
@@ -23,13 +23,12 @@ class _AadhaarScreenState extends State<AadhaarScreen> {
 
   @override
   Widget build(BuildContext context) {
-    bool _isChecked = false;
     return SafeArea(
       top: true,
       bottom: true,
       child: Scaffold(
         body: Padding(
-          padding: const EdgeInsets.all(16.0),
+          padding: const EdgeInsets.symmetric(horizontal: 30.0, vertical: 0.0),
           child: SingleChildScrollView(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -45,14 +44,20 @@ class _AadhaarScreenState extends State<AadhaarScreen> {
                   child: Text(
                     "Verify Aadhaar",
                     style:
-                        TextStyle(fontWeight: FontWeight.normal, fontSize: 40),
+                        TextStyle(fontFamily: 'Urbanist',
+                          fontSize: 40.0,
+                          color: blackSmall,
+                          fontWeight: FontWeight.w400,),
                   ),
                 ),
                 const Padding(
                   padding: EdgeInsets.only(top: 20, bottom: 44),
                   child: Text(
                     "Please validate your Aadhaar number",
-                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+                    style: TextStyle(fontFamily: 'Urbanist',
+                      fontSize: 15.0,
+                      color: blackSmall,
+                      fontWeight: FontWeight.w500,),
                     textAlign: TextAlign.start,
                   ),
                 ),
@@ -64,30 +69,34 @@ class _AadhaarScreenState extends State<AadhaarScreen> {
                   controller: _aadhaarController,
                   textInputAction: TextInputAction.done,
                   keyboardType: TextInputType.number,
+                  style: TextStyle(fontFamily: 'Urbanist',
+                    fontSize: 16.0,
+                    color: blackSmall,
+                    fontWeight: FontWeight.w500,),
                   decoration: const InputDecoration(
                     enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: MyColors.blueColor),
+                      borderSide: BorderSide(color: kPrimaryColor),
                     ),
+                    fillColor: textFiledBackgroundColour,
                     filled: true,
-                    fillColor: MyColors.lightBlueColor,
                     border: OutlineInputBorder(
-                      borderSide: BorderSide(color: MyColors.blueColor),
+                      borderSide: BorderSide(color: kPrimaryColor),
                     ),
                     focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: MyColors.blueColor),
+                      borderSide: BorderSide(color: kPrimaryColor),
                     ),
                     hintText: 'XXXX XXXX XXXX',
                     labelText: 'Aadhaar Card Number',
                   ),
                   onChanged: (value) {},
                 ),
-                const SizedBox(height: 24),
+                const SizedBox(height: 26),
                 Container(
                   decoration: BoxDecoration(
                     gradient: const LinearGradient(
-                      colors: [MyColors.blueColor, MyColors.blueColor],
+                      colors: [kPrimaryColor, kPrimaryColor],
                     ),
-                    borderRadius: BorderRadius.circular(4),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                   height: 148,
                   child: Padding(
@@ -95,8 +104,8 @@ class _AadhaarScreenState extends State<AadhaarScreen> {
                     child: InkWell(
                       child: Container(
                         decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(4),
+                          color: textFiledBackgroundColour,
+                          borderRadius: BorderRadius.circular(8.0),
                         ),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -106,15 +115,19 @@ class _AadhaarScreenState extends State<AadhaarScreen> {
                                 child: SvgPicture.asset(
                                     "assets/icons/gallery.svg",
                                     colorFilter: const ColorFilter.mode(
-                                        MyColors.blueColor, BlendMode.srcIn))),
+                                        kPrimaryColor, BlendMode.srcIn))),
                             const Text(
                               'Upload Aadhar Front Image',
                               style: TextStyle(
-                                  color: MyColors.blueColor, fontSize: 12),
+                                  color: kPrimaryColor, fontFamily: 'Urbanist',
+                                fontSize: 12.0,
+                                fontWeight: FontWeight.w400,),
                             ),
                             const Text(
                               'Supports : JPEG, PNG',
-                              style: TextStyle(fontSize: 12),
+                              style: TextStyle(color: blackSmall, fontFamily: 'Urbanist',
+                                fontSize: 12.0,
+                                fontWeight: FontWeight.w400,),
                             ),
                           ],
                         ),
@@ -133,17 +146,17 @@ class _AadhaarScreenState extends State<AadhaarScreen> {
                 Container(
                   decoration: BoxDecoration(
                     gradient: const LinearGradient(
-                      colors: [MyColors.blueColor, MyColors.blueColor],
+                      colors: [kPrimaryColor, kPrimaryColor],
                     ),
-                    borderRadius: BorderRadius.circular(4),
+                    borderRadius: BorderRadius.circular(8.0),
                   ),
                   height: 148,
                   child: Padding(
                     padding: const EdgeInsets.all(1),
                     child: Container(
                       decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(4),
+                        color: textFiledBackgroundColour,
+                        borderRadius: BorderRadius.circular(8.0),
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -153,22 +166,25 @@ class _AadhaarScreenState extends State<AadhaarScreen> {
                               child: SvgPicture.asset(
                                   "assets/icons/gallery.svg",
                                   colorFilter: const ColorFilter.mode(
-                                      MyColors.blueColor, BlendMode.srcIn))),
+                                      kPrimaryColor, BlendMode.srcIn))),
                           const Text(
                             'Upload Aadhar Back Image',
-                            style: TextStyle(
-                                color: MyColors.blueColor, fontSize: 12),
+                            style: TextStyle( color: kPrimaryColor, fontFamily: 'Urbanist',
+                              fontSize: 12.0,
+                              fontWeight: FontWeight.w400,),
                           ),
                           const Text('Supports : JPEG, PNG',
-                              style: TextStyle(fontSize: 12)),
+                              style: TextStyle( color: blackSmall, fontFamily: 'Urbanist',
+                                fontSize: 12.0,
+                                fontWeight: FontWeight.w400,)),
                         ],
                       ),
                     ),
                   ),
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 20),
                 const CheckboxTerm(),
-                const SizedBox(height: 16),
+                const SizedBox(height: 46),
                 CommonElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -177,7 +193,17 @@ class _AadhaarScreenState extends State<AadhaarScreen> {
                             builder: (context) => const AadhaarOtpScreen()));
                   },
                   text: 'Proceed to E-Aadhaar',
+                  upperCase: true,
                 ),
+                const SizedBox(height: 16),
+                Center(
+                  child: Text(
+                  "Proceed with manual Aadhaar ",
+                  style: TextStyle(fontWeight: FontWeight.w700, fontSize: 14, color: kPrimaryColor),
+                  textAlign: TextAlign.center,
+                ),
+                ),
+                const SizedBox(height: 16)
               ],
             ),
           ),

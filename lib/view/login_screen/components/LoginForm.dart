@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:scaleup_app/utils/common_elevted_button.dart';
 import 'package:scaleup_app/view/otp_screens/OtpScreen.dart';
 
-import '../../../constants.dart';
+import '../../../utils/constants.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({
@@ -54,13 +54,14 @@ class LoginForm extends StatelessWidget {
                 decoration: InputDecoration(
                     enabledBorder: OutlineInputBorder(
                       borderSide: BorderSide(color: kPrimaryColor),
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
                     ),
                     hintText: "Enter Your Number",
                     fillColor: textFiledBackgroundColour,
                     filled: true,
                     border: OutlineInputBorder(
                       borderSide: BorderSide(color: kPrimaryColor, width: 1.0),
-                      borderRadius: BorderRadius.all(Radius.circular(100.0)),
+                      borderRadius: BorderRadius.all(Radius.circular(10.0)),
                     )),
               ),
             ),

@@ -1,22 +1,18 @@
-import 'dart:ffi';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:scaleup_app/utils/ImagePicker.dart';
 import 'package:scaleup_app/utils/common_elevted_button.dart';
-import 'package:scaleup_app/view/otp_screens/OtpScreen.dart';
 import 'package:scaleup_app/view/pancard_screen/PermissionsScreen.dart';
 
-import '../../constants.dart';
+import '../../utils/constants.dart';
 
 class PancardScreen extends StatelessWidget {
   const PancardScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
+    return SafeArea(
+      child: Scaffold(
         body: Padding(
           padding: const EdgeInsets.only(top: 40),
           child: PancardWidget(),
@@ -198,7 +194,8 @@ class _PancardWidget extends State<PancardWidget> {
             ),
             SizedBox(height: 20),
             Row(
-              children: [CustomCheckbox(onChanged: (bool isChecked) {
+              children: [
+                CustomCheckbox(onChanged: (bool isChecked) {
                 // Handle the state change here
                 print('Checkbox state changed: $isChecked');
               },)],
