@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
+import 'package:pinput/pinput.dart';
 import 'package:scaleup_app/utils/common_elevted_button.dart';
 import 'package:scaleup_app/utils/kyc_faild_widgets.dart';
 import '../../utils/constants.dart';
@@ -10,7 +11,19 @@ class OtpScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final TextEditingController textEditingController = TextEditingController();
+    final defaultPinTheme = PinTheme(
+      width: 56,
+      height: 60,
+      textStyle: const TextStyle(
+        fontSize: 22,
+        color: Colors.black,
+      ),
+      decoration: BoxDecoration(
+        color: textFiledBackgroundColour,
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: Colors.transparent),
+      ),
+    );
 
 
     return SafeArea(
@@ -30,42 +43,27 @@ class OtpScreen extends StatelessWidget {
                   const Text(
                     'Enter \nVerification Code',
                     textAlign: TextAlign.start,
-                    style: TextStyle(fontSize: 40, color: Colors.black),
+                    style: TextStyle(fontSize: 35, color: Colors.black),
                   ),
-                  const SizedBox(height: 30,),
+                  const SizedBox(height: 20,),
                   const Text(
                     'We just sent to +91 XXXX XXX224',
                     textAlign: TextAlign.start,
                     style: TextStyle(fontSize: 15, color: Colors.black),
                   ),
-                  const SizedBox(height: 45,),
-                  OtpTextField(
-                    numberOfFields: 4,
-                    filled: true,
-                    borderColor: const Color(0xFF0196CE),
-                    fillColor: const Color(0xffEFFAFF),
-                    focusedBorderColor: const Color(0xffEFFAFF),
-                    enabledBorderColor: const Color(0xFF0196CE),
-                    borderRadius: 	const BorderRadius.all(Radius.circular(10.0)),
-                    fieldWidth: 66,
-                    //set to true to show as box or false to show as dash
-                    showFieldAsBox: true,
-                    //runs when a code is typed in
-                    onCodeChanged: (String code) {
-                      //handle validation or checks here
-                    },
-                    //runs when every textfield is filled
-                    onSubmit: (String verificationCode){
-                      showDialog(
-                          context: context,
-                          builder: (context){
-                            return AlertDialog(
-                              title: Text("Verification Code"),
-                              content: Text('Code entered is $verificationCode'),
-                            );
-                          }
-                      );
-                    }, // end onSubmit
+                  const SizedBox(height: 55,),
+                  Center(
+                    child: Pinput(
+                      length: 4,
+                      showCursor: true,
+                      defaultPinTheme: defaultPinTheme,
+                      focusedPinTheme: defaultPinTheme.copyWith(
+                        decoration: defaultPinTheme.decoration!.copyWith(
+                          border: Border.all(color: kPrimaryColor),
+                        ),
+                      ),
+                      onCompleted: (pin) => debugPrint(pin),
+                    ),
                   ),
                   const SizedBox(height: 40,),
                   const SizedBox(
