@@ -1,7 +1,9 @@
+import 'package:cupertino_date_time_picker_loki/cupertino_date_time_picker_loki.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:intl/intl.dart';
 import 'package:scaleup_app/utils/common_text_field.dart';
 
 import '../../utils/common_elevted_button.dart';
@@ -52,7 +54,7 @@ class _BusinessDetailsState extends State<BusinessDetails> {
             child: Text(
               item,
               style: const TextStyle(
-                fontSize: 14,
+                fontSize: 16,
               ),
             ),
           ),
@@ -82,6 +84,64 @@ class _BusinessDetailsState extends State<BusinessDetails> {
       }
     }
     return itemsHeights;
+  }
+
+  DateTime date = DateTime.now().subtract(Duration(days: 1));
+
+  String minDateTime = '2010-05-12';
+  String maxDateTime = '2030-11-25';
+  String initDateTime = '2021-08-31';
+
+  bool _showTitle = true;
+
+  DateTimePickerLocale? _locale = DateTimePickerLocale.en_us;
+  final List<DateTimePickerLocale> _locales = DateTimePickerLocale.values;
+
+  String _format = 'yyyy-MMMM-dd';
+  final TextEditingController _formatCtrl = TextEditingController();
+
+  DateTime? _dateTime;
+  String? slectedDate = "";
+
+  /// Display date picker.
+  void _showDatePicker(BuildContext context) {
+    DatePicker.showDatePicker(
+      context,
+      pickerTheme: DateTimePickerTheme(
+        cancel: const Icon(
+          Icons.close,
+          color: Colors.black38,
+        ),
+        title: 'Business Incorporation Date',
+        titleTextStyle: TextStyle(fontSize: 14),
+        showTitle: _showTitle,
+        selectionOverlayColor: Colors.blue,
+        // showTitle: false,
+        // titleHeight: 80,
+        // confirm: const Text('确定', style: TextStyle(color: Colors.blue)),
+      ),
+      minDateTime: DateTime.parse(minDateTime),
+      maxDateTime: DateTime.parse(maxDateTime),
+      initialDateTime: _dateTime,
+      dateFormat: _format,
+      locale: _locale!,
+      onClose: () => debugPrint("----- onClose -----"),
+      onCancel: () => debugPrint('onCancel'),
+      onChange: (dateTime, List<int> index) {
+        setState(() {
+          _dateTime = dateTime;
+        });
+      },
+      onConfirm: (dateTime, List<int> index) {
+        setState(() {
+          _dateTime = dateTime;
+          slectedDate = DateFormat('dd-MM-yyyy').format(dateTime);
+          if(kDebugMode) {
+            print("$_dateTime");
+          }
+        });
+      },
+    );
   }
 
   @override
@@ -192,14 +252,17 @@ class _BusinessDetailsState extends State<BusinessDetails> {
                   decoration: InputDecoration(
                     fillColor: textFiledBackgroundColour,
                     filled: true,
-                    contentPadding: const EdgeInsets.symmetric(vertical: 16),
+                    contentPadding:
+                        const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
-                      borderSide: const BorderSide(color: kPrimaryColor, width: 1),
+                      borderSide:
+                          const BorderSide(color: kPrimaryColor, width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
-                      borderSide: const BorderSide(color: kPrimaryColor, width: 1),
+                      borderSide:
+                          const BorderSide(color: kPrimaryColor, width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
@@ -211,7 +274,7 @@ class _BusinessDetailsState extends State<BusinessDetails> {
                     style: TextStyle(
                       color: blueColor,
                       fontFamily: 'Urbanist',
-                      fontSize: 14.0,
+                      fontSize: 16.0,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -242,16 +305,19 @@ class _BusinessDetailsState extends State<BusinessDetails> {
                 DropdownButtonFormField2<String>(
                   isExpanded: true,
                   decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.symmetric(vertical: 16),
+                    contentPadding:
+                        const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
                     fillColor: textFiledBackgroundColour,
                     filled: true,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
-                      borderSide: const BorderSide(color: kPrimaryColor, width: 1),
+                      borderSide:
+                          const BorderSide(color: kPrimaryColor, width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
-                      borderSide: const BorderSide(color: kPrimaryColor, width: 1),
+                      borderSide:
+                          const BorderSide(color: kPrimaryColor, width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
@@ -263,7 +329,7 @@ class _BusinessDetailsState extends State<BusinessDetails> {
                     style: TextStyle(
                       color: blueColor,
                       fontFamily: 'Urbanist',
-                      fontSize: 14.0,
+                      fontSize: 16.0,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -298,6 +364,35 @@ class _BusinessDetailsState extends State<BusinessDetails> {
                   labelText: "Business Incorporation Date",
                 ),
                 SizedBox(
+                  height: 16.0,
+                ),
+                InkWell(
+                  onTap: () {
+                    _showDatePicker(context);
+                  },
+                  child: Container(
+                    width: double.infinity,
+                    decoration: BoxDecoration(
+                        color: textFiledBackgroundColour,
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(color: kPrimaryColor)),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 16, vertical: 16),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(slectedDate!.isNotEmpty ? '$slectedDate' : 'Business Incorporation Date',
+                              style: TextStyle(
+                                fontSize: 16.0,
+                              )),
+                          Icon(Icons.date_range)
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
                   height: 22.0,
                 ),
                 Text(
@@ -316,16 +411,19 @@ class _BusinessDetailsState extends State<BusinessDetails> {
                 DropdownButtonFormField2<String>(
                   isExpanded: true,
                   decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.symmetric(vertical: 16),
+                    contentPadding:
+                        const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
                     fillColor: textFiledBackgroundColour,
                     filled: true,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
-                      borderSide: const BorderSide(color: kPrimaryColor, width: 1),
+                      borderSide:
+                          const BorderSide(color: kPrimaryColor, width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
-                      borderSide: const BorderSide(color: kPrimaryColor, width: 1),
+                      borderSide:
+                          const BorderSide(color: kPrimaryColor, width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
@@ -337,7 +435,7 @@ class _BusinessDetailsState extends State<BusinessDetails> {
                     style: TextStyle(
                       color: blueColor,
                       fontFamily: 'Urbanist',
-                      fontSize: 14.0,
+                      fontSize: 16.0,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -357,7 +455,7 @@ class _BusinessDetailsState extends State<BusinessDetails> {
                   menuItemStyleData: MenuItemStyleData(
                     padding: const EdgeInsets.symmetric(horizontal: 8.0),
                     customHeights:
-                    _getCustomItemsHeights(chooseBusinessProofList),
+                        _getCustomItemsHeights(chooseBusinessProofList),
                   ),
                   iconStyleData: const IconStyleData(
                     openMenuIcon: Icon(Icons.arrow_drop_up),

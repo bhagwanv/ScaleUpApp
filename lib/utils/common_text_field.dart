@@ -57,13 +57,16 @@ class _CommonTextFieldState extends State<CommonTextField> {
       onChanged: widget.onChanged,
       textInputAction: widget.textInputAction,
       maxLines: !_isObscure ? widget.maxLines : 1,
-      style: TextStyle(color: widget.textColor ?? Colors.black), // Set text color
+      style: TextStyle(fontFamily: 'Urbanist',
+        fontSize: 16.0,
+        fontWeight: FontWeight.w500,
+        color: widget.textColor ?? Colors.black,), // Set text color
       decoration: InputDecoration(
         fillColor: widget.fillColor,
         filled: true,
         hintText: widget.hintText,
         labelText: widget.labelText ?? 'Default Simple TextField', // Use confirmation text as label if provided, else use default label text
-        labelStyle: TextStyle(color: widget.accentColor ?? Colors.black), // Set accent color
+        labelStyle: TextStyle(color: widget.accentColor ?? blackSmall), // Set accent color
         helperText: widget.helperText,
         prefixIcon: widget.prefixIconData != null
             ? Icon(widget.prefixIconData, color: widget.accentColor ?? kPrimaryColor) // Set accent color for prefix icon
@@ -79,7 +82,7 @@ class _CommonTextFieldState extends State<CommonTextField> {
           color: widget.accentColor ?? kPrimaryColor,
         )
             : null,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        contentPadding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(8),
           borderSide: const BorderSide(color: kPrimaryColor, width: 1),
