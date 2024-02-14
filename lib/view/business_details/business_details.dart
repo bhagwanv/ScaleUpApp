@@ -157,6 +157,13 @@ class _BusinessDetailsState extends State<BusinessDetails> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Padding(
+                  padding: const EdgeInsets.only(top: 30.0),
+                  child: SvgPicture.asset(
+                      "assets/icons/back_arrow_icon.svg",
+                      colorFilter: const ColorFilter.mode(
+                          kPrimaryColor, BlendMode.srcIn)),
+                ),
                 const Padding(
                   padding: EdgeInsets.only(top: 20, bottom: 0),
                   child: Text(
@@ -178,6 +185,9 @@ class _BusinessDetailsState extends State<BusinessDetails> {
                     color: blackSmall,
                     fontWeight: FontWeight.w400,
                   ),
+                ),
+                SizedBox(
+                  height: 28.0,
                 ),
                 CommonTextField(
                   controller: _gstController,
