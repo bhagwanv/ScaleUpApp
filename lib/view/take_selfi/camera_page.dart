@@ -1,8 +1,10 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:scaleup_app/utils/constants.dart';
 import 'package:scaleup_app/view/take_selfi/preview_page.dart';
+import 'package:scaleup_app/view/take_selfi/take_selfi.dart';
 
 class CameraPage extends StatefulWidget {
   const CameraPage({Key? key, required this.cameras}) : super(key: key);
@@ -42,7 +44,7 @@ class _CameraPageState extends State<CameraPage> {
       Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) => PreviewPage(
+              builder: (context) => TakeSelfie(
                     picture: picture,
                   )));
     } on CameraException catch (e) {
@@ -74,9 +76,9 @@ class _CameraPageState extends State<CameraPage> {
             ? Center(
                 child: Container(
                   decoration: BoxDecoration(
-                      color: Colors.white,
+                      color: Colors.black87,
                       shape: BoxShape.rectangle,
-                      border: Border.all(color: kPrimaryColor, width: 1),
+                      border: Border.all(color: kPrimaryColor, width: 2),
                       borderRadius: BorderRadius.only(
                           topLeft: Radius.circular(10),
                           topRight: Radius.circular(10),
@@ -110,7 +112,7 @@ class _CameraPageState extends State<CameraPage> {
                         textAlign: TextAlign.start,
                         style: TextStyle(fontSize: 18, color: Colors.black,fontWeight: FontWeight.bold),
                       ),
-                      const SizedBox(
+                      SizedBox(
                         height: 10,
                       ),
                       Text(
@@ -121,14 +123,17 @@ class _CameraPageState extends State<CameraPage> {
                     ],
                   ),
                 ),
-                SizedBox(
-                  width: double.infinity,
-                  child: IconButton(
-                    onPressed: takePicture,
-                    iconSize: 50,
-                    padding: EdgeInsets.zero,
-                    constraints: const BoxConstraints(),
-                    icon: const Icon(Icons.circle, color: kPrimaryColor),
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 50),
+                  child: SizedBox(
+                    width: double.infinity,
+                    child: IconButton(
+                      onPressed: takePicture,
+                      iconSize: 50,
+                      padding: EdgeInsets.zero,
+                      constraints: const BoxConstraints(),
+                      icon: SvgPicture.asset('assets/images/camera_click.svg'),
+                    ),
                   ),
                 ),
               ],

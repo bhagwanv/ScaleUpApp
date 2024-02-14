@@ -2,6 +2,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
 import 'package:scaleup_app/view/personal_info/PersonalInformation.dart';
+import 'package:scaleup_app/view/take_selfi/take_selfi.dart';
 import '../../utils/common_elevted_button.dart';
 import '../../utils/constants.dart';
 import '../../utils/kyc_faild_widgets.dart';
@@ -108,7 +109,7 @@ class _AadhaarOtpScreenState extends State<AadhaarOtpScreen> {
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return const PersonalInformation();
+                          return const TakeSelfie();
                         },
                       ),
                     );

@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:intl/intl.dart';
 import 'package:scaleup_app/utils/common_text_field.dart';
+import 'package:scaleup_app/view/profile_screen/ProfileReview.dart';
 
 import '../../utils/common_elevted_button.dart';
 import '../../utils/constants.dart';
@@ -528,7 +529,17 @@ class _BusinessDetailsState extends State<BusinessDetails> {
                 ),
                 const SizedBox(height: 54.0),
                 CommonElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const ProfileReview();
+                        },
+                      ),
+                    );
+                  },
                   text: 'Next',
                   upperCase: true,
                 ),

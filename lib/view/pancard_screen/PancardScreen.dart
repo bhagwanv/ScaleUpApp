@@ -65,7 +65,8 @@ class _PancardWidget extends State<PancardWidget> {
               keyboardType: TextInputType.text,
               cursorColor: kPrimaryColor,
               decoration: InputDecoration(
-                contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
                 enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: kPrimaryColor),
                     borderRadius: BorderRadius.all(Radius.circular(10.0))),
@@ -96,7 +97,8 @@ class _PancardWidget extends State<PancardWidget> {
               keyboardType: TextInputType.text,
               cursorColor: kPrimaryColor,
               decoration: InputDecoration(
-                contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
                 enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: kPrimaryColor),
                     borderRadius: BorderRadius.all(Radius.circular(10.0))),
@@ -120,7 +122,8 @@ class _PancardWidget extends State<PancardWidget> {
               keyboardType: TextInputType.text,
               cursorColor: kPrimaryColor,
               decoration: InputDecoration(
-                contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
                 enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: kPrimaryColor),
                     borderRadius: BorderRadius.all(Radius.circular(10.0))),
@@ -143,7 +146,8 @@ class _PancardWidget extends State<PancardWidget> {
               keyboardType: TextInputType.text,
               cursorColor: kPrimaryColor,
               decoration: InputDecoration(
-                contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                contentPadding:
+                    EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
                 enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: kPrimaryColor),
                     borderRadius: BorderRadius.all(Radius.circular(10.0))),
@@ -157,74 +161,81 @@ class _PancardWidget extends State<PancardWidget> {
             ),
             SizedBox(height: 20),
             Container(
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  border: Border.all(color: Color(0xff0196CE))),
-              width: double.infinity,
-              height: 148,
-              child: GestureDetector(
-                onTap: () {
-                  bottomSheetMenu(context);
-                },
-                child: Padding(
-                  padding: const EdgeInsets.all(2),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Color(0xffEFFAFF),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        SvgPicture.asset('assets/images/gallery.svg'),
-                        Text(
-                          'Upload Aadhar Front Image',
-                          style: TextStyle(color: Color(0xff0196CE),fontSize: 12),
-                        ),
-                        Text('Supports : JPEG, PNG',
-                            style: TextStyle(fontSize: 12,color: Color(0xffCACACA))),
-                      ],
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(color: Color(0xff0196CE))),
+                width: double.infinity,
+                height: 148,
+                child: GestureDetector(
+                  onTap: () {
+                    bottomSheetMenu(context);
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.all(2),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: Color(0xffEFFAFF),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SvgPicture.asset('assets/images/gallery.svg'),
+                          Text(
+                            'Upload Aadhar Front Image',
+                            style: TextStyle(
+                                color: Color(0xff0196CE), fontSize: 12),
+                          ),
+                          Text('Supports : JPEG, PNG',
+                              style: TextStyle(
+                                  fontSize: 12, color: Color(0xffCACACA))),
+                        ],
+                      ),
                     ),
                   ),
-                ) ,
-
-              )
-
-            ),
+                )),
             SizedBox(height: 20),
             Row(
               children: [
-                CustomCheckbox(onChanged: (bool isChecked) {
-                // Handle the state change here
-                print('Checkbox state changed: $isChecked');
-              },)],
+                CustomCheckbox(
+                  onChanged: (bool isChecked) {
+                    // Handle the state change here
+                    print('Checkbox state changed: $isChecked');
+                  },
+                )
+              ],
             ),
             SizedBox(height: 20),
             Text(
                 "I hereby accept Scaleup T&C & Privacy Notice. Further, I hereby agree to share my details, including PAN, Date of birth, Name, Pin code, Mobile number, Email id and device information with you and for further sharing with your partners including lending partners"),
             SizedBox(height: 30),
-            CommonElevatedButton(onPressed: (){  Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) {
-                  return const PermissionsScreen();
-                },
-              ),
-            );;}, text: "next",upperCase: true, )
+            CommonElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return const PermissionsScreen();
+                    },
+                  ),
+                );
+                ;
+              },
+              text: "next",
+              upperCase: true,
+            )
           ],
         ),
       ),
     );
   }
 
-
   void bottomSheetMenu(BuildContext context) {
     showModalBottomSheet(
         context: context,
-        builder: (builder){
+        builder: (builder) {
           return const ImagePickerWidgets();
-        }
-    );
+        });
   }
 }
 
@@ -232,6 +243,7 @@ class CustomCheckbox extends StatefulWidget {
   final ValueChanged<bool>? onChanged;
 
   CustomCheckbox({Key? key, this.onChanged}) : super(key: key);
+
   @override
   _CustomCheckboxState createState() => _CustomCheckboxState();
 }

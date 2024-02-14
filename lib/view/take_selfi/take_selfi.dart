@@ -1,21 +1,20 @@
+import 'dart:io';
+
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:scaleup_app/utils/common_elevted_button.dart';
 import 'package:scaleup_app/utils/constants.dart';
 import 'package:scaleup_app/view/take_selfi/camera_page.dart';
-import 'package:scaleup_app/view/take_selfi/camera_selfie_open.dart';
 
-class TakeSelfie extends StatefulWidget {
-  const TakeSelfie({super.key});
+class TakeSelfie extends StatelessWidget {
+  final XFile? picture;
 
-  @override
-  State<TakeSelfie> createState() => _TakeSelfieState();
-}
+  const TakeSelfie({super.key, this.picture});
 
-class _TakeSelfieState extends State<TakeSelfie> {
   @override
   Widget build(BuildContext context) {
+    bool isImagePathAvailble = false;
     return SafeArea(
         child: Scaffold(
       backgroundColor: textFiledBackgroundColour,
@@ -68,7 +67,21 @@ class _TakeSelfieState extends State<TakeSelfie> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      SvgPicture.asset('assets/images/take_selfie.svg'),
+                      if (picture != null) ...[
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(8.0),
+                          child: Image.file(
+                            File(picture!.path),
+                            fit: BoxFit.cover,
+                            width: 245,
+                            height: 245,
+                          ),
+                        )
+                      ] else ...[
+                        Container(
+                          child: SvgPicture.asset('assets/images/take_selfie.svg'),
+                        )
+                      ]
                     ],
                   ),
                 ),

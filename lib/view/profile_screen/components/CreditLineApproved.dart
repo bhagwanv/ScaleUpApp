@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:scaleup_app/view/Bank_details_screen/BankDetailsScreen.dart';
 
 import '../../../utils/common_elevted_button.dart';
 import '../../../utils/constants.dart';
@@ -89,7 +90,7 @@ class _CreditLineApprovedState extends State<CreditLineApproved> {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return const BusinessDetails();
+                        return const BankDetailsScreen();
                       },
                     ),
                   );

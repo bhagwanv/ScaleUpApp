@@ -1,6 +1,7 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:scaleup_app/view/agreement_screen/Agreementscreen.dart';
 
 import '../../utils/common_elevted_button.dart';
 import '../../utils/common_text_field.dart';
@@ -232,7 +233,16 @@ class _BankDetailsScreenState extends State<BankDetailsScreen> {
               ),
               SizedBox(height: 30.0,),
               CommonElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return const AgreementScreen();
+                      },
+                    ),
+                  );
+                },
                 text: 'Next',
                 upperCase: true,
               ),
