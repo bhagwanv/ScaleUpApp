@@ -39,6 +39,7 @@ dependencies:
   flutter_otp_text_field: ^1.1.1
   pinput: ^2.2.31
   dropdown_button2: ^2.3.9
+  camera: ^0.9.4+19
 
 
 

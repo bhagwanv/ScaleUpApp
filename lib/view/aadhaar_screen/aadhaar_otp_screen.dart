@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
+import 'package:scaleup_app/view/personal_info/PersonalInformation.dart';
 import '../../utils/common_elevted_button.dart';
 import '../../utils/constants.dart';
 import '../../utils/kyc_faild_widgets.dart';
@@ -102,7 +103,18 @@ class _AadhaarOtpScreenState extends State<AadhaarOtpScreen> {
                       )
                   ),
                   const SizedBox(height: 10,),
-                  CommonElevatedButton(onPressed: (){ print("clickd");}, text: "Verify Code",upperCase: true, )
+                  CommonElevatedButton(onPressed: (){
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const PersonalInformation();
+                        },
+                      ),
+                    );
+
+
+                  }, text: "Verify Code",upperCase: true, )
                 ],
               ),
             ),

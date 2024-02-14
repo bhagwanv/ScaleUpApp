@@ -31,8 +31,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
               ),
               const SizedBox(height: 15),
               Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
                 child: Column(
                   children: [
                     const TextField(
