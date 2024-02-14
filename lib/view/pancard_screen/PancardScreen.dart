@@ -12,11 +12,10 @@ class PancardScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
+      top: true,
+      bottom: true,
       child: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.only(top: 40),
-          child: PancardWidget(),
-        ),
+        body: PancardWidget(),
       ),
     );
   }
