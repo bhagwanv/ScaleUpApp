@@ -85,7 +85,7 @@ class LoginForm extends StatelessWidget {
                     return const OtpScreen();
                   },
                 ),
-              );;}, text: "GET OTP",upperCase: true, ),
+              );}, text: "GET OTP",upperCase: true, ),
             ],
           ),
         ),
