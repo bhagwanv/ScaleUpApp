@@ -11,12 +11,11 @@ class PermissionsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        body: Padding(
-          padding: const EdgeInsets.only(top: 40),
-          child: PermissionsWidget(),
-        ),
+    return SafeArea(
+      top: true,
+      bottom: true,
+      child: Scaffold(
+        body: PermissionsWidget(),
       ),
     );
   }
