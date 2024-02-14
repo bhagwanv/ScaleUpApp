@@ -54,8 +54,8 @@ class KycFailedWidgets extends StatelessWidget {
             const SizedBox(height: 30,),
             Padding(
               padding: const EdgeInsets.only(top: 20,bottom: 40,right: 20,left: 20),
-              child: CommonElevatedButton(onPressed: (){
-
+              child:
+              CommonElevatedButton(onPressed: (){
                 Navigator.push(
                   context,
                   MaterialPageRoute(
