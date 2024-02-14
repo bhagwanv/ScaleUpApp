@@ -16,15 +16,31 @@ class BusinessDetails extends StatefulWidget {
 
 class _BusinessDetailsState extends State<BusinessDetails> {
   final TextEditingController _gstController = TextEditingController();
-  final List<String> busnessTypeList = [
+  final List<String> businessTypeList = [
     'Proprietorship',
     'Partnership',
     'Pvt Ltd',
     'HUF',
     'LLP'
   ];
+  String? selectedBusinessTypeValue;
 
-  String? selectedValue;
+  final List<String> monthlySalesTurnoverList = [
+    'Upto 3 Lacs',
+    '3 Lacs - 10 Lacs',
+    '10 Lacs - 25 Lacs',
+    'Above 25 Lacs '
+  ];
+  String? selectedMonthlySalesTurnoverValue;
+
+  final List<String> chooseBusinessProofList = [
+    'GST Certificate',
+    'Udyog Aadhaar Certificate',
+    'Shop Establishment Certificate',
+    'Trade License',
+    'Others'
+  ];
+  String? selectedChooseBusinessProofValue;
 
   List<DropdownMenuItem<String>> _addDividersAfterItems(List<String> items) {
     final List<DropdownMenuItem<String>> menuItems = [];
@@ -35,13 +51,18 @@ class _BusinessDetailsState extends State<BusinessDetails> {
             value: item,
             child: Text(
               item,
+              style: const TextStyle(
+                fontSize: 14,
+              ),
             ),
           ),
           //If it's last item, we will not add Divider after it.
           if (item != items.last)
-            DropdownMenuItem<String>(
+            const DropdownMenuItem<String>(
               enabled: false,
-              child: Divider(),
+              child: Divider(
+                height: 0.1,
+              ),
             ),
         ],
       );
@@ -49,6 +70,19 @@ class _BusinessDetailsState extends State<BusinessDetails> {
     return menuItems;
   }
 
+  List<double> _getCustomItemsHeights(List<String> items) {
+    final List<double> itemsHeights = [];
+    for (int i = 0; i < (items.length * 2) - 1; i++) {
+      if (i.isEven) {
+        itemsHeights.add(40);
+      }
+      //Dividers indexes will be the odd indexes
+      if (i.isOdd) {
+        itemsHeights.add(4);
+      }
+    }
+    return itemsHeights;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -156,13 +190,21 @@ class _BusinessDetailsState extends State<BusinessDetails> {
                 DropdownButtonFormField2<String>(
                   isExpanded: true,
                   decoration: InputDecoration(
-                    // Add Horizontal padding using menuItemStyleData.padding so it matches
-                    // the menu padding when button's width is not specified.
-                    contentPadding: const EdgeInsets.symmetric(vertical: 0),
+                    fillColor: textFiledBackgroundColour,
+                    filled: true,
+                    contentPadding: const EdgeInsets.symmetric(vertical: 16),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
+                      borderSide: const BorderSide(color: kPrimaryColor, width: 1),
                     ),
-                    // Add more decoration..
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: const BorderSide(color: kPrimaryColor, width: 1),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: BorderSide(color: kPrimaryColor, width: 1),
+                    ),
                   ),
                   hint: const Text(
                     'Business Type',
@@ -173,37 +215,161 @@ class _BusinessDetailsState extends State<BusinessDetails> {
                       fontWeight: FontWeight.w500,
                     ),
                   ),
-                  items: _addDividersAfterItems(busnessTypeList),
-                  validator: (value) {
-                    if (value == null) {
-                      return 'Please select Business Type';
-                    }
-                    return null;
-                  },
-                  onChanged: (value) {
-                    //Do something when selected item is changed.
-                  },
-                  onSaved: (value) {
-                    selectedValue = value.toString();
+                  items: _addDividersAfterItems(businessTypeList),
+                  value: selectedBusinessTypeValue,
+                  onChanged: (String? value) {
+                    setState(() {
+                      selectedBusinessTypeValue = value;
+                    });
                   },
                   buttonStyleData: const ButtonStyleData(
                     padding: EdgeInsets.only(right: 8),
                   ),
+                  dropdownStyleData: const DropdownStyleData(
+                    maxHeight: 200,
+                  ),
+                  menuItemStyleData: MenuItemStyleData(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    customHeights: _getCustomItemsHeights(businessTypeList),
+                  ),
                   iconStyleData: const IconStyleData(
-                    icon: Icon(
-                      Icons.arrow_drop_down,
-                      color: Colors.black45,
-                    ),
-                    iconSize: 24,
+                    openMenuIcon: Icon(Icons.arrow_drop_up),
                   ),
-                  dropdownStyleData: DropdownStyleData(
-                    decoration: BoxDecoration(
+                ),
+                SizedBox(
+                  height: 16.0,
+                ),
+                DropdownButtonFormField2<String>(
+                  isExpanded: true,
+                  decoration: InputDecoration(
+                    contentPadding: const EdgeInsets.symmetric(vertical: 16),
+                    fillColor: textFiledBackgroundColour,
+                    filled: true,
+                    border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(8),
+                      borderSide: const BorderSide(color: kPrimaryColor, width: 1),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: const BorderSide(color: kPrimaryColor, width: 1),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: BorderSide(color: kPrimaryColor, width: 1),
                     ),
                   ),
-                  menuItemStyleData: const MenuItemStyleData(
-                    padding: EdgeInsets.symmetric(horizontal: 16),
+                  hint: const Text(
+                    'Monthly Sales Turnover',
+                    style: TextStyle(
+                      color: blueColor,
+                      fontFamily: 'Urbanist',
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
+                  items: _addDividersAfterItems(monthlySalesTurnoverList),
+                  value: selectedMonthlySalesTurnoverValue,
+                  onChanged: (String? value) {
+                    setState(() {
+                      selectedMonthlySalesTurnoverValue = value;
+                    });
+                  },
+                  buttonStyleData: const ButtonStyleData(
+                    padding: EdgeInsets.only(right: 8),
+                  ),
+                  dropdownStyleData: const DropdownStyleData(
+                    maxHeight: 200,
+                  ),
+                  menuItemStyleData: MenuItemStyleData(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    customHeights:
+                        _getCustomItemsHeights(monthlySalesTurnoverList),
+                  ),
+                  iconStyleData: const IconStyleData(
+                    openMenuIcon: Icon(Icons.arrow_drop_up),
+                  ),
+                ),
+                SizedBox(
+                  height: 16.0,
+                ),
+                CommonTextField(
+                  controller: _gstController,
+                  hintText: "Business Incorporation Date",
+                  labelText: "Business Incorporation Date",
+                ),
+                SizedBox(
+                  height: 22.0,
+                ),
+                Text(
+                  "Business Address ",
+                  style: TextStyle(
+                    fontFamily: 'Urbanist',
+                    fontSize: 14.0,
+                    color: gryColor,
+                    fontWeight: FontWeight.w500,
+                  ),
+                  textAlign: TextAlign.start,
+                ),
+                SizedBox(
+                  height: 16.0,
+                ),
+                DropdownButtonFormField2<String>(
+                  isExpanded: true,
+                  decoration: InputDecoration(
+                    contentPadding: const EdgeInsets.symmetric(vertical: 16),
+                    fillColor: textFiledBackgroundColour,
+                    filled: true,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: const BorderSide(color: kPrimaryColor, width: 1),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: const BorderSide(color: kPrimaryColor, width: 1),
+                    ),
+                    enabledBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(8),
+                      borderSide: BorderSide(color: kPrimaryColor, width: 1),
+                    ),
+                  ),
+                  hint: const Text(
+                    'Choose Business Proof',
+                    style: TextStyle(
+                      color: blueColor,
+                      fontFamily: 'Urbanist',
+                      fontSize: 14.0,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
+                  items: _addDividersAfterItems(chooseBusinessProofList),
+                  value: selectedChooseBusinessProofValue,
+                  onChanged: (String? value) {
+                    setState(() {
+                      selectedChooseBusinessProofValue = value;
+                    });
+                  },
+                  buttonStyleData: const ButtonStyleData(
+                    padding: EdgeInsets.only(right: 8),
+                  ),
+                  dropdownStyleData: const DropdownStyleData(
+                    maxHeight: 200,
+                  ),
+                  menuItemStyleData: MenuItemStyleData(
+                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                    customHeights:
+                    _getCustomItemsHeights(chooseBusinessProofList),
+                  ),
+                  iconStyleData: const IconStyleData(
+                    openMenuIcon: Icon(Icons.arrow_drop_up),
+                  ),
+                ),
+                SizedBox(
+                  height: 16.0,
+                ),
+                CommonTextField(
+                  controller: _gstController,
+                  hintText: "Business Document Number",
+                  labelText: "Business Document Number",
                 ),
                 SizedBox(
                   height: 36.0,
