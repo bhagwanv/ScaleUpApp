@@ -25,6 +25,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.1"
+  bottom_picker:
+    dependency: "direct main"
+    description:
+      name: bottom_picker
+      sha256: af0b3de7b357bcdbf094200790e1902fdb83f469bb222bc4757d0589292178aa
+      url: "https://pub.dev"
+    source: hosted
+    version: "2.4.0"
   characters:
     dependency: transitive
     description:
@@ -49,6 +57,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.18.0"
+  cupertino_date_time_picker_loki:
+    dependency: "direct main"
+    description:
+      name: cupertino_date_time_picker_loki
+      sha256: "0a14d2dcdbcbfdb3379da5f8474fb91fd3300ca3270c47602830902f54f7866a"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.5"
   cupertino_icons:
     dependency: "direct main"
     description:
@@ -112,6 +128,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  intl:
+    dependency: "direct main"
+    description:
+      name: intl
+      sha256: d6f56758b7d3014a48af9701c085700aac781a92a87a62b1333b46d8879661cf
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.19.0"
   lints:
     dependency: transitive
     description:
