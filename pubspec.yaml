@@ -46,6 +46,8 @@ dependencies:
   cupertino_date_time_picker_loki: ^0.0.5
   intl: ^0.19.0
 
+  image_picker: ^0.8.2
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -83,11 +85,11 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-    - family: Urbanist
-      fonts:
-        - asset: fonts/Urbanist-Regular.ttf,
-        - asset: fonts/Urbanist-Black.ttf,
+  #fonts:
+#    - family: Urbanist
+#      fonts:
+#        - asset: fonts/Urbanist-Regular.ttf,
+#        - asset: fonts/Urbanist-Black.ttf,
 
   #   - family: Trajan Pro
   #     fonts:
