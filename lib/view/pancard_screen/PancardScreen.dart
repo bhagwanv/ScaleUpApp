@@ -66,7 +66,7 @@ class _PancardWidget extends State<PancardWidget> {
               cursorColor: kPrimaryColor,
               decoration: InputDecoration(
                 contentPadding:
-                    EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                    EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
                 enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: kPrimaryColor),
                     borderRadius: BorderRadius.all(Radius.circular(10.0))),
@@ -98,7 +98,7 @@ class _PancardWidget extends State<PancardWidget> {
               cursorColor: kPrimaryColor,
               decoration: InputDecoration(
                 contentPadding:
-                    EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                    EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
                 enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: kPrimaryColor),
                     borderRadius: BorderRadius.all(Radius.circular(10.0))),
@@ -123,7 +123,7 @@ class _PancardWidget extends State<PancardWidget> {
               cursorColor: kPrimaryColor,
               decoration: InputDecoration(
                 contentPadding:
-                    EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                    EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
                 enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: kPrimaryColor),
                     borderRadius: BorderRadius.all(Radius.circular(10.0))),
@@ -147,7 +147,7 @@ class _PancardWidget extends State<PancardWidget> {
               cursorColor: kPrimaryColor,
               decoration: InputDecoration(
                 contentPadding:
-                    EdgeInsets.symmetric(vertical: 10.0, horizontal: 10.0),
+                    EdgeInsets.symmetric(vertical: 16.0, horizontal: 16.0),
                 enabledBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: kPrimaryColor),
                     borderRadius: BorderRadius.all(Radius.circular(10.0))),
@@ -170,27 +170,25 @@ class _PancardWidget extends State<PancardWidget> {
                   onTap: () {
                     bottomSheetMenu(context);
                   },
-                  child: Padding(
-                    padding: const EdgeInsets.all(2),
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: Color(0xffEFFAFF),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SvgPicture.asset('assets/images/gallery.svg'),
-                          Text(
-                            'Upload Aadhar Front Image',
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Color(0xffEFFAFF),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SvgPicture.asset('assets/images/gallery.svg'),
+                        Text(
+                          'Upload Aadhar Front Image',
+                          style: TextStyle(
+                              color: Color(0xff0196CE), fontSize: 12),
+                        ),
+                        Text('Supports : JPEG, PNG',
                             style: TextStyle(
-                                color: Color(0xff0196CE), fontSize: 12),
-                          ),
-                          Text('Supports : JPEG, PNG',
-                              style: TextStyle(
-                                  fontSize: 12, color: Color(0xffCACACA))),
-                        ],
-                      ),
+                                fontSize: 12, color: Color(0xffCACACA))),
+                      ],
                     ),
                   ),
                 )),

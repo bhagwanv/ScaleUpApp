@@ -25,7 +25,7 @@ class _CreditLineApprovedState extends State<CreditLineApproved> {
           padding: const EdgeInsets.all(30),
           child: Column(
             children: [
-              SizedBox(height: 30),
+              SizedBox(height: 10),
               Container(
                 alignment: Alignment.center,
                 child:
@@ -33,24 +33,24 @@ class _CreditLineApprovedState extends State<CreditLineApproved> {
               ),
               Column(
                 children: [
-                  SizedBox(height: 20),
+                  SizedBox(height: 10),
                   Text(
                     "Congratulations !! ",
                     style: TextStyle(color: kPrimaryColor, fontSize: 18),
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 10),
                   Text(
                     "You are qualified for credit limit of",
                     style: TextStyle(color: Colors.black, fontSize: 15),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 20),
+                  SizedBox(height: 10),
                   Text(
                     "₹ 1,00,000.00",
                     style: TextStyle(color: Colors.black, fontSize: 30),
                     textAlign: TextAlign.center,
                   ),
-                  SizedBox(height: 40),
+                  SizedBox(height: 20),
                   Text.rich(TextSpan(
                       text: 'PF Charges :',style: TextStyle(color: Colors.black, fontSize: 15),
                       children: <InlineSpan>[
@@ -83,7 +83,7 @@ class _CreditLineApprovedState extends State<CreditLineApproved> {
                   ),
                 ],
               ),
-              SizedBox(height: 80),
+              SizedBox(height: 30),
               CommonElevatedButton(
                 onPressed: () {
                   Navigator.push(
@@ -99,7 +99,7 @@ class _CreditLineApprovedState extends State<CreditLineApproved> {
                 text: "Proceed to e-mandate",
                 upperCase: true,
               ),
-              SizedBox(height: 20),
+              SizedBox(height: 10),
               Text(
                 "Need Higher Limit",
                 style: TextStyle(color: kPrimaryColor),

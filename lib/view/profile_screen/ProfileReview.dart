@@ -27,7 +27,7 @@ class _ProfileReviewState extends State<ProfileReview> {
             padding: const EdgeInsets.all(30),
             child: Column(
               children: [
-                SizedBox(height: 150),
+                SizedBox(height: 50),
                 Container(
                   alignment: Alignment.center,
                   child: SvgPicture.asset('assets/images/profile_review.svg'),
