@@ -86,7 +86,8 @@ flutter:
   fonts:
     - family: Urbanist
       fonts:
-        - asset: fonts/Urbanist-Regular.ttf
+        - asset: fonts/Urbanist-Regular.ttf,
+        - asset: fonts/Urbanist-Black.ttf,
 
   #   - family: Trajan Pro
   #     fonts:

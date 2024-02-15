@@ -43,7 +43,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                       decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: textFiledBackgroundColour,
+                              color: kPrimaryColor,
                             ),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.0)),
@@ -54,7 +54,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                           filled: true,
                           border: OutlineInputBorder(
                             borderSide: BorderSide(
-                                color: textFiledBackgroundColour, width: 1.0),
+                                color: kPrimaryColor, width: 1.0),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.0)),
                           )),
@@ -68,7 +68,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                       decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: textFiledBackgroundColour,
+                              color: kPrimaryColor,
                             ),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.0)),
@@ -79,7 +79,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                           filled: true,
                           border: OutlineInputBorder(
                             borderSide: BorderSide(
-                                color: textFiledBackgroundColour, width: 1.0),
+                                color: kPrimaryColor, width: 1.0),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.0)),
                           )),
@@ -93,7 +93,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                       decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: textFiledBackgroundColour,
+                              color: kPrimaryColor,
                             ),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.0)),
@@ -104,7 +104,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                           filled: true,
                           border: OutlineInputBorder(
                             borderSide: BorderSide(
-                                color: textFiledBackgroundColour, width: 1.0),
+                                color: kPrimaryColor, width: 1.0),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.0)),
                           )),
@@ -118,7 +118,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                       decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: textFiledBackgroundColour,
+                              color: kPrimaryColor,
                             ),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.0)),
@@ -128,8 +128,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                           fillColor: textFiledBackgroundColour,
                           filled: true,
                           border: OutlineInputBorder(
-                            borderSide: BorderSide(
-                                color: textFiledBackgroundColour, width: 1.0),
+                            borderSide: BorderSide(color: kPrimaryColor, width: 1.0),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.0)),
                           )),
@@ -143,7 +142,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                       decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: textFiledBackgroundColour,
+                              color: kPrimaryColor,
                             ),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.0)),
@@ -154,7 +153,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                           filled: true,
                           border: OutlineInputBorder(
                             borderSide: BorderSide(
-                                color: textFiledBackgroundColour, width: 1.0),
+                                color: kPrimaryColor, width: 1.0),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.0)),
                           )),
@@ -168,7 +167,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                       decoration: InputDecoration(
                         enabledBorder: const OutlineInputBorder(
                           borderSide: BorderSide(
-                            color: textFiledBackgroundColour,
+                            color: kPrimaryColor,
                           ),
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                         ),
@@ -178,7 +177,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                         filled: true,
                         border: const OutlineInputBorder(
                           borderSide: BorderSide(
-                              color: textFiledBackgroundColour, width: 1.0),
+                              color: kPrimaryColor, width: 1.0),
                           borderRadius: BorderRadius.all(Radius.circular(10.0)),
                         ),
                         suffixIcon: Container(
@@ -210,7 +209,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                       decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: textFiledBackgroundColour,
+                              color: kPrimaryColor,
                             ),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.0)),
@@ -221,7 +220,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                           filled: true,
                           border: OutlineInputBorder(
                             borderSide: BorderSide(
-                                color: textFiledBackgroundColour, width: 1.0),
+                                color: kPrimaryColor, width: 1.0),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.0)),
                           )),
@@ -243,7 +242,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                       decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: textFiledBackgroundColour,
+                              color: kPrimaryColor,
                             ),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.0)),
@@ -254,7 +253,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                           filled: true,
                           border: OutlineInputBorder(
                             borderSide: BorderSide(
-                                color: textFiledBackgroundColour, width: 1.0),
+                                color: kPrimaryColor, width: 1.0),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.0)),
                           )),
@@ -268,7 +267,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                       decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: textFiledBackgroundColour,
+                              color: kPrimaryColor,
                             ),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.0)),
@@ -279,7 +278,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                           filled: true,
                           border: OutlineInputBorder(
                             borderSide: BorderSide(
-                                color: textFiledBackgroundColour, width: 1.0),
+                                color: kPrimaryColor, width: 1.0),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.0)),
                           )),
@@ -293,7 +292,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                       decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: textFiledBackgroundColour,
+                              color: kPrimaryColor,
                             ),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.0)),
@@ -304,7 +303,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                           filled: true,
                           border: OutlineInputBorder(
                             borderSide: BorderSide(
-                                color: textFiledBackgroundColour, width: 1.0),
+                                color: kPrimaryColor, width: 1.0),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.0)),
                           )),
@@ -318,7 +317,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                       decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: textFiledBackgroundColour,
+                              color: kPrimaryColor,
                             ),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.0)),
@@ -329,7 +328,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                           filled: true,
                           border: OutlineInputBorder(
                             borderSide: BorderSide(
-                                color: textFiledBackgroundColour, width: 1.0),
+                                color: kPrimaryColor, width: 1.0),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.0)),
                           )),
@@ -343,7 +342,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                       decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: textFiledBackgroundColour,
+                              color: kPrimaryColor,
                             ),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.0)),
@@ -354,7 +353,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                           filled: true,
                           border: OutlineInputBorder(
                             borderSide: BorderSide(
-                                color: textFiledBackgroundColour, width: 1.0),
+                                color: kPrimaryColor, width: 1.0),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.0)),
                           )),
@@ -383,7 +382,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                       decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: textFiledBackgroundColour,
+                              color: kPrimaryColor,
                             ),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.0)),
@@ -394,7 +393,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                           filled: true,
                           border: OutlineInputBorder(
                             borderSide: BorderSide(
-                                color: textFiledBackgroundColour, width: 1.0),
+                                color: kPrimaryColor, width: 1.0),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.0)),
                           )),
@@ -408,7 +407,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                       decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: textFiledBackgroundColour,
+                              color: kPrimaryColor,
                             ),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.0)),
@@ -419,7 +418,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                           filled: true,
                           border: OutlineInputBorder(
                             borderSide: BorderSide(
-                                color: textFiledBackgroundColour, width: 1.0),
+                                color: kPrimaryColor, width: 1.0),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.0)),
                           )),
@@ -433,7 +432,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                       decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: textFiledBackgroundColour,
+                              color: kPrimaryColor,
                             ),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.0)),
@@ -444,7 +443,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                           filled: true,
                           border: OutlineInputBorder(
                             borderSide: BorderSide(
-                                color: textFiledBackgroundColour, width: 1.0),
+                                color: kPrimaryColor, width: 1.0),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.0)),
                           )),
@@ -458,7 +457,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                       decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: textFiledBackgroundColour,
+                              color: kPrimaryColor,
                             ),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.0)),
@@ -469,7 +468,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                           filled: true,
                           border: OutlineInputBorder(
                             borderSide: BorderSide(
-                                color: textFiledBackgroundColour, width: 1.0),
+                                color: kPrimaryColor, width: 1.0),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.0)),
                           )),
@@ -483,7 +482,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                       decoration: InputDecoration(
                           enabledBorder: OutlineInputBorder(
                             borderSide: BorderSide(
-                              color: textFiledBackgroundColour,
+                              color: kPrimaryColor,
                             ),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.0)),
@@ -494,7 +493,7 @@ class _PersonalInformationState extends State<PersonalInformation> {
                           filled: true,
                           border: OutlineInputBorder(
                             borderSide: BorderSide(
-                                color: textFiledBackgroundColour, width: 1.0),
+                                color: kPrimaryColor, width: 1.0),
                             borderRadius:
                                 BorderRadius.all(Radius.circular(10.0)),
                           )),
