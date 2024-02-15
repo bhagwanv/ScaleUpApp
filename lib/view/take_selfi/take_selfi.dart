@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:scaleup_app/utils/common_elevted_button.dart';
 import 'package:scaleup_app/utils/constants.dart';
+import 'package:scaleup_app/view/personal_info/PersonalInformation.dart';
 import 'package:scaleup_app/view/take_selfi/camera_page.dart';
 
 class TakeSelfie extends StatelessWidget {
@@ -14,7 +15,7 @@ class TakeSelfie extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    bool isImagePathAvailble = false;
+
     return SafeArea(
         child: Scaffold(
       backgroundColor: textFiledBackgroundColour,
@@ -67,46 +68,47 @@ class TakeSelfie extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      if (picture != null) ...[
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(8.0),
-                          child: Image.file(
-                            File(picture!.path),
-                            fit: BoxFit.cover,
-                            width: 245,
-                            height: 245,
-                          ),
-                        )
-                      ] else ...[
-                        Container(
-                          child: SvgPicture.asset('assets/images/take_selfie.svg'),
-                        )
-                      ]
+                      (picture != null)
+                          ? ClipRRect(
+                              borderRadius: BorderRadius.circular(8.0),
+                              child: Image.file(
+                                File(picture!.path),
+                                fit: BoxFit.cover,
+                                width: 245,
+                                height: 245,
+                              ),
+                            )
+                          : Container(
+                              child: SvgPicture.asset(
+                                  'assets/images/take_selfie.svg'),
+                            )
                     ],
                   ),
                 ),
               ),
             ),
             const SizedBox(height: 50),
-            CommonElevatedButton(
-              onPressed: () async {
-                await availableCameras().then((value) => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (_) => CameraPage(cameras: value))));
-
-                /* Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      //return const TakeCameraSelfie();
+            (picture == null)
+                ? CommonElevatedButton(
+                    onPressed: () async {
+                      await availableCameras().then((value) => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => CameraPage(cameras: value))));
                     },
+                    text: "Take a Selfie",
+                    upperCase: true,
+                  )
+                : CommonElevatedButton(
+                    onPressed: () async {
+                      await availableCameras().then((value) => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (_) => PersonalInformation())));
+                    },
+                    text: "Next",
+                    upperCase: true,
                   ),
-                );*/
-              },
-              text: "Take a Selfie",
-              upperCase: true,
-            ),
           ]),
         ),
       ),

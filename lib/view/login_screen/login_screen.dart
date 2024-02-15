@@ -67,14 +67,14 @@ class LoginScreenTopImage extends StatelessWidget {
             padding: EdgeInsets.only(left: 30, top: 50),
             child: Text(
               "Enter\nPhone Number",
-              style: TextStyle(fontWeight: FontWeight.normal, fontSize: 35.5),
+              style: TextStyle(fontWeight: FontWeight.w400,fontSize: 35.5),
             ),
           ),
           Padding(
             padding: EdgeInsets.only(top: 50, left: 30),
             child: Text(
               "Please Enter Your registered number.",
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 15),
+              style: TextStyle(fontWeight: FontWeight.w500, fontFamily:'fonts/Urbanist-Black.ttf',fontSize: 15,),
               textAlign: TextAlign.start,
             ),
           ),
@@ -83,7 +83,7 @@ class LoginScreenTopImage extends StatelessWidget {
             child: Text(
               "Enter Your Number",
               style: TextStyle(
-                  fontWeight: FontWeight.normal, fontSize: 14, color: gryColor),
+                  fontWeight: FontWeight.w400, fontSize: 14, color: gryColor),
               textAlign: TextAlign.start,
             ),
           ),
