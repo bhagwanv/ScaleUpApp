@@ -1,11 +1,9 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:scaleup_app/view/Bank_details_screen/BankDetailsScreen.dart';
 
 import '../../../utils/common_elevted_button.dart';
 import '../../../utils/constants.dart';
-import '../../business_details/business_details.dart';
 
 class CreditLineApproved extends StatefulWidget {
   const CreditLineApproved({super.key});
@@ -25,13 +23,13 @@ class _CreditLineApprovedState extends State<CreditLineApproved> {
           padding: const EdgeInsets.all(30),
           child: Column(
             children: [
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Container(
                 alignment: Alignment.center,
                 child:
                     SvgPicture.asset('assets/images/credit_line_approved.svg'),
               ),
-              Column(
+              const Column(
                 children: [
                   SizedBox(height: 10),
                   Text(
@@ -52,7 +50,8 @@ class _CreditLineApprovedState extends State<CreditLineApproved> {
                   ),
                   SizedBox(height: 20),
                   Text.rich(TextSpan(
-                      text: 'PF Charges :',style: TextStyle(color: Colors.black, fontSize: 15),
+                      text: 'PF Charges :',
+                      style: TextStyle(color: Colors.black, fontSize: 15),
                       children: <InlineSpan>[
                         TextSpan(
                           text: '₹ 2360.00',
@@ -67,7 +66,8 @@ class _CreditLineApprovedState extends State<CreditLineApproved> {
                   ),
                   SizedBox(height: 20),
                   Text.rich(TextSpan(
-                      text: 'Convenience fee : :',style: TextStyle(color: Colors.black, fontSize: 15),
+                      text: 'Convenience fee : :',
+                      style: TextStyle(color: Colors.black, fontSize: 15),
                       children: <InlineSpan>[
                         TextSpan(
                           text: '2%+GST',
@@ -75,7 +75,6 @@ class _CreditLineApprovedState extends State<CreditLineApproved> {
                               fontSize: 15, fontWeight: FontWeight.bold),
                         )
                       ])),
-
                   Text(
                     "(will be charged on every transaction)",
                     style: TextStyle(color: Colors.black, fontSize: 15),
@@ -83,7 +82,7 @@ class _CreditLineApprovedState extends State<CreditLineApproved> {
                   ),
                 ],
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               CommonElevatedButton(
                 onPressed: () {
                   Navigator.push(
@@ -94,18 +93,16 @@ class _CreditLineApprovedState extends State<CreditLineApproved> {
                       },
                     ),
                   );
-                  ;
                 },
                 text: "Proceed to e-mandate",
                 upperCase: true,
               ),
-              SizedBox(height: 10),
-              Text(
+              const SizedBox(height: 10),
+              const Text(
                 "Need Higher Limit",
                 style: TextStyle(color: kPrimaryColor),
                 textAlign: TextAlign.center,
               ),
-
             ],
           ),
         ),

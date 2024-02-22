@@ -169,7 +169,6 @@ class _BusinessDetailsState extends State<BusinessDetails> {
                   child: Text(
                     "Step 1",
                     style: TextStyle(
-                      fontFamily: 'Urbanist',
                       fontSize: 15.0,
                       color: kPrimaryColor,
                       fontWeight: FontWeight.w600,
@@ -180,7 +179,6 @@ class _BusinessDetailsState extends State<BusinessDetails> {
                 const Text(
                   "Business Details",
                   style: TextStyle(
-                    fontFamily: 'Urbanist',
                     fontSize: 40.0,
                     color: blackSmall,
                     fontWeight: FontWeight.w400,
@@ -208,7 +206,6 @@ class _BusinessDetailsState extends State<BusinessDetails> {
                 Text(
                   "Business Address ",
                   style: TextStyle(
-                    fontFamily: 'Urbanist',
                     fontSize: 14.0,
                     color: gryColor,
                     fontWeight: FontWeight.w500,
@@ -284,7 +281,6 @@ class _BusinessDetailsState extends State<BusinessDetails> {
                     'Business Type',
                     style: TextStyle(
                       color: blueColor,
-                      fontFamily: 'Urbanist',
                       fontSize: 16.0,
                       fontWeight: FontWeight.w500,
                     ),
@@ -339,7 +335,6 @@ class _BusinessDetailsState extends State<BusinessDetails> {
                     'Monthly Sales Turnover',
                     style: TextStyle(
                       color: blueColor,
-                      fontFamily: 'Urbanist',
                       fontSize: 16.0,
                       fontWeight: FontWeight.w500,
                     ),
@@ -409,7 +404,6 @@ class _BusinessDetailsState extends State<BusinessDetails> {
                 Text(
                   "Business Address ",
                   style: TextStyle(
-                    fontFamily: 'Urbanist',
                     fontSize: 14.0,
                     color: gryColor,
                     fontWeight: FontWeight.w500,
@@ -445,7 +439,6 @@ class _BusinessDetailsState extends State<BusinessDetails> {
                     'Choose Business Proof',
                     style: TextStyle(
                       color: blueColor,
-                      fontFamily: 'Urbanist',
                       fontSize: 16.0,
                       fontWeight: FontWeight.w500,
                     ),
@@ -512,7 +505,6 @@ class _BusinessDetailsState extends State<BusinessDetails> {
                               'Upload Business Proof',
                               style: TextStyle(
                                 color: kPrimaryColor,
-                                fontFamily: 'Urbanist',
                                 fontSize: 12.0,
                                 fontWeight: FontWeight.w400,
                               ),
@@ -521,7 +513,6 @@ class _BusinessDetailsState extends State<BusinessDetails> {
                               'Supports : PDF, JPEG, PNG',
                               style: TextStyle(
                                 color: blackSmall,
-                                fontFamily: 'Urbanist',
                                 fontSize: 12.0,
                                 fontWeight: FontWeight.w400,
                               ),

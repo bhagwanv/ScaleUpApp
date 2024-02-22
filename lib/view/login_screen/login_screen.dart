@@ -74,7 +74,7 @@ class LoginScreenTopImage extends StatelessWidget {
             padding: EdgeInsets.only(top: 50, left: 30),
             child: Text(
               "Please Enter Your registered number.",
-              style: TextStyle(fontWeight: FontWeight.w500, fontFamily:'fonts/Urbanist-Black.ttf',fontSize: 15,),
+              style: TextStyle(fontWeight: FontWeight.w500,fontSize: 15, color: Colors.black),
               textAlign: TextAlign.start,
             ),
           ),

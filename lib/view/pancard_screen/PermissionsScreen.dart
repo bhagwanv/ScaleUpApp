@@ -240,7 +240,7 @@ class _PermissionsWidget extends State<PermissionsWidget> {
                 context,
                 MaterialPageRoute(
                   builder: (context) {
-                    return const AadhaarScreen();
+                    return AadhaarScreen();
                   },
                 ),
               );

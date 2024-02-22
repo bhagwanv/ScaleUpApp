@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_svg/svg.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:scaleup_app/view/pancard_screen/PancardScreen.dart';
 
 enum ImageSourceType { gallery, camera }
 
 class ImagePickerWidgets extends StatefulWidget {
-  const ImagePickerWidgets({
-    Key? key,
+  late Function(File) onImageSelected;
+  ImagePickerWidgets({
+    Key? key,  required this.onImageSelected
   }) : super(key: key);
 
   @override
@@ -19,7 +19,6 @@ class ImagePickerWidgets extends StatefulWidget {
 
 class _ImagePickerWidgetsState extends State<ImagePickerWidgets> {
   var imagePicker;
-  var _image;
 
   Future<void> _handleURLButtonPress(BuildContext context, var type) async {
     var source = (type == ImageSourceType.camera)
@@ -30,14 +29,10 @@ class _ImagePickerWidgetsState extends State<ImagePickerWidgets> {
         source: source,
         imageQuality: 50,
         preferredCameraDevice: CameraDevice.front);
-    setState(() {
-      _image = File(image.path);
-
-      Navigator.push(context,MaterialPageRoute(
-        builder: (context) => PancardScreen(image: _image),
-      ),);
-
-    });
+    if (image != null) {
+      // Call the callback function with the selected image
+      widget.onImageSelected(File(image.path));
+    }
   }
 
   @override
@@ -103,6 +98,6 @@ class _ImagePickerWidgetsState extends State<ImagePickerWidgets> {
   @override
   void initState() {
     super.initState();
-    imagePicker = new ImagePicker();
+    imagePicker = ImagePicker();
   }
 }

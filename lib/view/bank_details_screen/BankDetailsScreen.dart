@@ -92,7 +92,6 @@ class _BankDetailsScreenState extends State<BankDetailsScreen> {
               Text(
                 "Step 4",
                 style: TextStyle(
-                  fontFamily: 'Urbanist',
                   fontSize: 15.0,
                   color: kPrimaryColor,
                   fontWeight: FontWeight.w600,
@@ -103,7 +102,6 @@ class _BankDetailsScreenState extends State<BankDetailsScreen> {
               Text(
                 "Bank Details",
                 style: TextStyle(
-                  fontFamily: 'Urbanist',
                   fontSize: 40.0,
                   color: blackSmall,
                   fontWeight: FontWeight.w400,
@@ -135,7 +133,6 @@ class _BankDetailsScreenState extends State<BankDetailsScreen> {
                   'Bank Name',
                   style: TextStyle(
                     color: blueColor,
-                    fontFamily: 'Urbanist',
                     fontSize: 14.0,
                     fontWeight: FontWeight.w500,
                   ),
@@ -199,7 +196,6 @@ class _BankDetailsScreenState extends State<BankDetailsScreen> {
                   'Account Type',
                   style: TextStyle(
                     color: blueColor,
-                    fontFamily: 'Urbanist',
                     fontSize: 14.0,
                     fontWeight: FontWeight.w500,
                   ),

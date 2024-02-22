@@ -60,7 +60,7 @@ class KycFailedWidgets extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return const PancardScreen();
+                      return PancardScreen();
                     },
                   ),
                 );

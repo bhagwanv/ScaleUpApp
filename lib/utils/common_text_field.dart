@@ -57,7 +57,7 @@ class _CommonTextFieldState extends State<CommonTextField> {
       onChanged: widget.onChanged,
       textInputAction: widget.textInputAction,
       maxLines: !_isObscure ? widget.maxLines : 1,
-      style: TextStyle(fontFamily: 'Urbanist',
+      style: TextStyle(
         fontSize: 16.0,
         fontWeight: FontWeight.w500,
         color: widget.textColor ?? Colors.black,), // Set text color

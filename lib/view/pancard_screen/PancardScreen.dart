@@ -9,9 +9,9 @@ import 'package:scaleup_app/view/pancard_screen/PermissionsScreen.dart';
 import '../../utils/constants.dart';
 
 class PancardScreen extends StatefulWidget {
-  final File? image;
+  late File? image;
 
-  const PancardScreen({super.key, this.image});
+  PancardScreen({super.key, this.image});
 
   @override
   State<PancardScreen> createState() => _PancardScreenState();
@@ -20,6 +20,16 @@ class PancardScreen extends StatefulWidget {
 class _PancardScreenState extends State<PancardScreen> {
   TextEditingController _controller = TextEditingController();
   bool isChecked = false;
+
+  // Callback function to receive the selected image
+  void _onImageSelected(File imageFile) {
+    // Handle the selected image here
+    // For example, you can setState to update UI with the selected image
+    setState(() {
+      widget.image = imageFile;
+      Navigator.pop(context);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -160,7 +170,6 @@ class _PancardScreenState extends State<PancardScreen> {
                       borderRadius: BorderRadius.circular(10),
                       border: Border.all(color: Color(0xff0196CE))),
                   width: double.infinity,
-
                   child: GestureDetector(
                     onTap: () {
                       bottomSheetMenu(context);
@@ -174,31 +183,33 @@ class _PancardScreenState extends State<PancardScreen> {
                       ),
                       child: (widget.image != null)
                           ? ClipRRect(
-                        borderRadius: BorderRadius.circular(8.0),
-                        child: Image.file(widget.image as File,
-                          fit: BoxFit.cover,
-                          width: double.infinity,
-                          height: 148,
-                        ),
-                      )
+                              borderRadius: BorderRadius.circular(8.0),
+                              child: Image.file(
+                                widget.image as File,
+                                fit: BoxFit.cover,
+                                width: double.infinity,
+                                height: 148,
+                              ),
+                            )
                           : Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          SvgPicture.asset('assets/images/gallery.svg'),
-                          Text(
-                            'Upload PAN Image',
-                            style: TextStyle(
-                                color: Color(0xff0196CE), fontSize: 12),
-                          ),
-                          Text('Supports : JPEG, PNG',
-                              style: TextStyle(
-                                  fontSize: 12, color: Color(0xffCACACA))),
-                        ],
-                      ),
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                SvgPicture.asset('assets/images/gallery.svg'),
+                                const Text(
+                                  'Upload PAN Image',
+                                  style: TextStyle(
+                                      color: Color(0xff0196CE), fontSize: 12),
+                                ),
+                                const Text('Supports : JPEG, PNG',
+                                    style: TextStyle(
+                                        fontSize: 12,
+                                        color: Color(0xffCACACA))),
+                              ],
+                            ),
                     ),
                   )),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               Row(
                 children: [
                   CustomCheckbox(
@@ -239,7 +250,7 @@ class _PancardScreenState extends State<PancardScreen> {
     showModalBottomSheet(
         context: context,
         builder: (builder) {
-          return const ImagePickerWidgets();
+          return ImagePickerWidgets(onImageSelected: _onImageSelected);
         });
   }
 }

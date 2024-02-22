@@ -29,7 +29,6 @@ class _AgreementScreenState extends State<AgreementScreen> {
                   Text(
                     "Agreement",
                     style: TextStyle(
-                      fontFamily: 'Urbanist',
                       fontSize: 40.0,
                       color: Colors.black,
                       fontWeight: FontWeight.w100,
@@ -40,7 +39,6 @@ class _AgreementScreenState extends State<AgreementScreen> {
                   Text(
                     "Billing and Credit Card Information",
                     style: TextStyle(
-                      fontFamily: 'Urbanist',
                       fontSize: 12.0,
                       color: Colors.black,
                       fontWeight: FontWeight.w600,
@@ -49,7 +47,6 @@ class _AgreementScreenState extends State<AgreementScreen> {
                   Text(
                     "Billing and Credit Card Information Our Services comprise, generally business coaching Webinars, Seminars and materials distributed on a subscription basis. To enable payment, we collect and store name, address, telephone number, email address, credit card information, and other billing information. This information will only be shared with third parties who facilitate completion of the purchase transaction, such as by fulfilling orders and processing credit card payments.We will not disclose your billing and/or credit card information unless required by law or a court order, or unless disclosure is required to address an issue implicated by the financial transaction. For instance, if you claim that your billing and/or credit card information was used to make a purchase you did not authorize, details about the transaction may be disclosed to law enforcement and any party we deem necessary to address the matter.",
                     style: TextStyle(
-                      fontFamily: 'Urbanist',
                       fontSize: 12.0,
                       color: blackSmall,
                       fontWeight: FontWeight.w400,
